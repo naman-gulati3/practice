@@ -1,0 +1,16 @@
+### IntelliJ IDEA ###
+**/*.iml
+.idea/
+.classpath
+.settings
+.project
+.factoryPath
+
+# Target files
+target/
+.out/
+# OS Files
+.DS_Store
+
+# log files
+log/
