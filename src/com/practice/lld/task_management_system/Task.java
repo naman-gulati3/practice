@@ -1,18 +1,21 @@
 package com.practice.lld.task_management_system;
 
-import java.time.Instant;
+import java.util.Date;
 
 public class Task {
-  private final String title;
-  private final String description;
-  private final int priority;
-  private final Instant scheduledTime;
 
-  public Task(String title, String description, int priority, Instant scheduledTime) {
-    this.title = title;
-    this.description = description;
-    this.priority = priority;
-    this.scheduledTime = scheduledTime;
+  private  String id;
+  private String title;
+  private String description;
+  private int priority;
+  private Date scheduledTime;
+
+  private Status status;
+
+  private User assignedUser;
+
+
+  public Task() {
   }
 
   public String getTitle() {
@@ -27,7 +30,60 @@ public class Task {
     return priority;
   }
 
-  public Instant getScheduledTime() {
+  public Date getScheduledTime() {
     return scheduledTime;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public void setStatus(Status status) {
+    this.status = status;
+  }
+
+  public Status getStatus() {
+    return status;
+  }
+
+  public User getAssignedUser() {
+    return assignedUser;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public void setPriority(int priority) {
+    this.priority = priority;
+  }
+
+  public void setScheduledTime(Date scheduledTime) {
+    this.scheduledTime = scheduledTime;
+  }
+
+  public void setAssignedUser(User assignedUser) {
+    this.assignedUser = assignedUser;
+  }
+
+  @Override
+  public String toString() {
+    return "Task{" +
+        "id='" + id + '\'' +
+        ", title='" + title + '\'' +
+        ", description='" + description + '\'' +
+        ", priority=" + priority +
+        ", scheduledTime=" + scheduledTime +
+        ", status=" + status +
+        ", assignedUser=" + assignedUser +
+        '}';
   }
 }
