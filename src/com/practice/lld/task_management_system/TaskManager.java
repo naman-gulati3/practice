@@ -9,8 +9,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class TaskManager {
   private static TaskManager instance;
-  private Map<String, Task> tasks;
-  private Map<String, List<Task>> userTasks;
+  private final Map<String, Task> tasks;
+  private final Map<String, List<Task>> userTasks;
 
   private TaskManager() {
     this.tasks = new ConcurrentHashMap<>();
