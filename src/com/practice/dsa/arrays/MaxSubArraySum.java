@@ -21,6 +21,7 @@ public class MaxSubArraySum {
       }
 
       if(sum < 0) {
+        start = i;
         sum = 0;
       }
     }

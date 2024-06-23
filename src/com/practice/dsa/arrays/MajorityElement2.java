@@ -4,17 +4,18 @@ public class MajorityElement2 {
 
 
   public static void main(String[] args) {
-    System.out.println(majorityElement(new int[] {2, 2, 1, 3, 1, 1, 3, 1, 1}));
+    System.out.println(majorityElement(new int[]{2, 2, 1, 3, 1, 1, 3, 1, 1}));
   }
 
+  // find majority element with size > n/3
   private static int majorityElement(int[] nums) {
     int count1 = 0;
     int count2 = 0;
     int candidate1 = Integer.MIN_VALUE;
     int candidate2 = Integer.MIN_VALUE;
 
-    for(int num : nums) {
-      if(count1 == 0 && candidate2 != num) {
+    for (int num : nums) {
+      if (count1 == 0 && candidate2 != num) {
         count1 = 1;
         candidate1 = num;
       } else if (count2 == 0 && candidate1 != num) {
@@ -32,21 +33,21 @@ public class MajorityElement2 {
 
     int cnt1 = 0;
     int cnt2 = 0;
-    for(int num : nums) {
-      if(num == candidate1) {
+    for (int num : nums) {
+      if (num == candidate1) {
         cnt1++;
       }
 
-      if(num == candidate2) {
+      if (num == candidate2) {
         cnt2++;
       }
     }
 
-    if(cnt1 >= (nums.length / 3)) {
+    if (cnt1 >= (nums.length / 3)) {
       return candidate1;
     }
 
-    if(cnt2 >= (nums.length / 3)) {
+    if (cnt2 >= (nums.length / 3)) {
       return candidate2;
     }
 

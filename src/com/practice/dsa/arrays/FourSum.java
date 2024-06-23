@@ -10,8 +10,8 @@ import java.util.Set;
 public class FourSum {
 
   public static void main(String[] args) {
-    System.out.println(fourSum(new int[]{1,0,-1,0,-2,2}, 0));
-    System.out.println(fourSumOptimal(new int[]{1,0,-1,0,-2,2}, 0));
+    System.out.println(fourSum(new int[]{1, 0, -1, 0, -2, 2}, 0));
+    System.out.println(fourSumOptimal(new int[]{1, 0, -1, 0, -2, 2}, 0));
     // 1,0,-1,0,-2,2
     // 1,1,0,0,-2,0
     // 1,0,-1,0,0,2
@@ -20,19 +20,19 @@ public class FourSum {
   public static List<List<Integer>> fourSum(int[] nums, int target) {
     Set<List<Integer>> result = new HashSet<>();
 
-    for(int i = 0 ; i < nums.length; i++) {
-      for(int j = i + 1; j < nums.length; j++) {
-      Set<Integer> remaining = new HashSet<>();
-        for(int k = j + 1; k < nums.length; k++) {
+    for (int i = 0; i < nums.length; i++) {
+      for (int j = i + 1; j < nums.length; j++) {
+        Set<Integer> remaining = new HashSet<>();
+        for (int k = j + 1; k < nums.length; k++) {
           int sum = nums[i] + nums[j];
           sum += nums[k];
           int fourth = target - sum;
-          if(remaining.contains(fourth)) {
+          if (remaining.contains(fourth)) {
             List<Integer> sol = new ArrayList<>(List.of(nums[i], nums[j], nums[k], fourth));
             sol.sort(Comparator.comparingInt(num -> num));
             result.add(sol);
           }
-            remaining.add(nums[k]);
+          remaining.add(nums[k]);
         }
       }
     }
@@ -43,21 +43,25 @@ public class FourSum {
     List<List<Integer>> result = new ArrayList<>();
     Arrays.sort(nums);
 
-    for(int i = 0; i < nums.length; i++) {
-      if(i > 0 && nums[i] == nums[i -1]) continue;
-      for(int j = i +1; j < nums.length; j++) {
-        if(j != i + 1 && nums[j] == nums[j - 1]) continue;
+    for (int i = 0; i < nums.length; i++) {
+      if (i > 0 && nums[i] == nums[i - 1]) {
+        continue;
+      }
+      for (int j = i + 1; j < nums.length; j++) {
+        if (j != i + 1 && nums[j] == nums[j - 1]) {
+          continue;
+        }
 
         int k = j + 1;
         int l = nums.length - 1;
-        while(k < l) {
+        while (k < l) {
           int sum = nums[i] + nums[j] + nums[k] + nums[l];
-          if(sum == target) {
+          if (sum == target) {
             List<Integer> sol = new ArrayList<>(List.of(nums[i], nums[j], nums[k], nums[l]));
             result.add(sol);
           }
 
-          if(sum > target) {
+          if (sum > target) {
             l--;
           } else {
             k++;

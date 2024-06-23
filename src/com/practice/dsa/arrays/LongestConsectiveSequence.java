@@ -13,7 +13,7 @@ public class LongestConsectiveSequence {
       return 0;
     }
 
-    int lastSeenSmallest = Integer.MIN_VALUE;
+    int lastSeenSmallest;
     Arrays.sort(nums);
     int currentSequenceLength = 1;
     int longestSequence = 1;
