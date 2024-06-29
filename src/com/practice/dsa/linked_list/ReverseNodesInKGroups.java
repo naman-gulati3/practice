@@ -33,7 +33,7 @@ public class ReverseNodesInKGroups {
     }
 
     // 1 -> 2 -> 3 -> 4 -> null
-    //p  c    n
+    //p c    n
     while (count >= k) {
       curr = prev.next;
       next = curr.next;

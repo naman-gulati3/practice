@@ -20,6 +20,7 @@ public class LinkedListCycle {
     System.out.println(hasCycle(l1));
   }
 
+  // solve with slow-fast pointer
   public static boolean hasCycle(ListNode head) {
     Set<ListNode> visited = new HashSet<>();
     while (head != null) {
