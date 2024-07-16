@@ -34,6 +34,8 @@ public class ReverseNodesInKGroups {
 
     // 1 -> 2 -> 3 -> 4 -> null
     //p c    n
+    // p -> 2 <- 1 -> 3 -> 4 -> null
+    //            p    n
     while (count >= k) {
       curr = prev.next;
       next = curr.next;

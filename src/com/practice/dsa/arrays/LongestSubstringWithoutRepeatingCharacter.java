@@ -8,7 +8,7 @@ import java.util.Set;
 public class LongestSubstringWithoutRepeatingCharacter {
 
   public static void main(String[] args) {
-//    System.out.println(lengthOfLongestSubstring("pwwkew"));
+    System.out.println(lengthOfLongestSubstring("pwwkew"));
     System.out.println(lengthOfLongestSubstringOptimal("pwwkew"));
   }
 

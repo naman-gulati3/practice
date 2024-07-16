@@ -25,6 +25,7 @@ public class MinimumNumberOfCoins {
       if (coins[i] <= V) {
         int subResult = solve(coins, M, V - coins[i], dp);
 
+        // some subRes is found and it is better than existing res
         if (subResult != Integer.MAX_VALUE && subResult + 1 < res) {
           res = subResult + 1;
         }
@@ -47,6 +48,7 @@ public class MinimumNumberOfCoins {
       }
       int i = 0;
       while (i < M && coins[i] <= V) {
+        // pick the maximum possible coin
         pickedCoin = coins[i];
         i++;
       }

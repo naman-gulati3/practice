@@ -16,7 +16,7 @@ public class MinimumRailwayPlatforms {
       if (arr[i] <= dep[j]) {
         currentMax++;
         i++;
-      } else if (arr[i] > arr[j]) {
+      } else if (arr[i] > dep[j]) {
         currentMax--;
         j++;
       }

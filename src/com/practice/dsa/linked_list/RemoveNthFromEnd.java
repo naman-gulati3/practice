@@ -5,7 +5,9 @@ import com.practice.dsa.linked_list.MergeSortedLinkedList.ListNode;
 public class RemoveNthFromEnd {
 
   public static void main(String[] args) {
-    ListNode res = removeNthFromEnd(new ListNode(1, null), 1);
+    ListNode res = removeNthFromEnd(
+        new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, null))))),
+        3);
     while (res != null) {
       System.out.println(res.val);
       res = res.next;
