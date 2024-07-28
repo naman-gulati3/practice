@@ -1,6 +1,5 @@
 package com.practice.dsa.stack_and_queue;
 
-import java.util.Arrays;
 import java.util.Stack;
 
 public class LargestRectangleInHistogram {
@@ -43,8 +42,6 @@ public class LargestRectangleInHistogram {
 
     int maxA = 0;
     for (int i = 0; i < n; i++) {
-      System.out.println(Arrays.toString(rightSmall));
-      System.out.println(Arrays.toString(leftSmall));
       maxA = Math.max(maxA, heights[i] * (rightSmall[i] - leftSmall[i] + 1));
     }
     return maxA;

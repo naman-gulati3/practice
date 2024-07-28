@@ -50,12 +50,14 @@ public class NQueen {
       }
     }
 
+    // left upper diagonal
     for (int i = row, j = col; i >= 0 && j >= 0; i--, j--) {
       if (board[i][j] == 'Q') {
         return false;
       }
     }
 
+    // right upper diagonal
     for (int i = row, j = col; i >= 0 && j < n; i--, j++) {
       if (board[i][j] == 'Q') {
         return false;
