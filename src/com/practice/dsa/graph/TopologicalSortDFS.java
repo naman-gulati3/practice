@@ -32,8 +32,7 @@ public class TopologicalSortDFS {
     }
     int i = 0;
     while (!stack.isEmpty()) {
-      sorted[i] = stack.pop();
-      i++;
+      sorted[i++] = stack.pop();
     }
     return sorted;
   }

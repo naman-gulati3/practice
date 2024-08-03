@@ -24,7 +24,7 @@ public class CheckIfCourseCanBeCompleted {
     // DFS
     var visited = new HashSet<Integer>();
     for (Map.Entry<Integer, ArrayList<Integer>> entry : graph.entrySet()) {
-      var fromNode = entry.getKey();
+      Integer fromNode = entry.getKey();
       if (canNotFinishCourse(graph, fromNode, visited)) {
         return false;
       }

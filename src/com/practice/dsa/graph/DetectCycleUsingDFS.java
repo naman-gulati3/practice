@@ -29,6 +29,7 @@ public class DetectCycleUsingDFS {
   private static boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj) {
     boolean[] visited = new boolean[V];
 
+    // this loop is required to check each component which could be disconnected from each other
     for (int i = 0; i < V; i++) {
       if (!visited[i]) {
         if (checkForCycle(i, -1, visited, adj)) {

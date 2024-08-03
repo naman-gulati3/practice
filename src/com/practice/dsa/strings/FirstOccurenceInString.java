@@ -84,6 +84,6 @@ public class FirstOccurenceInString {
 
 
   public static void main(String[] args) {
-    System.out.println(kmp("leetcode", "aba"));
+    System.out.println(kmp("leetcode", "tco"));
   }
 }

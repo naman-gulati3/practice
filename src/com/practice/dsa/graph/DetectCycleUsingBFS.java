@@ -31,6 +31,7 @@ public class DetectCycleUsingBFS {
   private static boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj) {
     boolean[] visited = new boolean[V];
 
+    // this for loop is for cases when we have multiple disconnected components
     for (int i = 0; i < V; i++) {
       if (!visited[i]) {
         if (checkForCycle(visited, adj, i)) {
