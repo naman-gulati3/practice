@@ -28,6 +28,21 @@ public class EditDistance {
     for (int j = 0; j <= m; j++) {
       dp[0][j] = j;
     }
+    //   r o s
+    // h 0 0 0 0
+    // o 0
+    // r 0
+    // s 0
+    // e 0
+    //   0
+
+//     r  o  s
+// h   0, 1, 2, 3,
+// o   1, 0, 0, 0
+// r   2, 0, 0, 0
+// s   3, 0, 0, 0
+// e   4, 0, 0, 0
+//     5, 0, 0, 0
 
     for (int i = 1; i <= n; i++) {
       for (int j = 1; j <= m; j++) {
@@ -43,10 +58,12 @@ public class EditDistance {
 
   private static int solve(String word1, int i, String word2, int j, int[][] dp) {
     if (i == 0) {
+      // word1 is exhausted. Return j so that we can insert characters from word2
       return j;
     }
 
     if (j == 0) {
+      // word2 is exhausted. Return i so that we can delete characters from word1 to make string match
       return i;
     }
 

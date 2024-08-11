@@ -25,14 +25,11 @@ public class DetectCycleInDirectedUsingBFS {
         queue.offer(i);
       }
     }
-//    int[] topoSorted = new int[V + 2];
 
     int i = 0;
     while (!queue.isEmpty()) {
       int curr = queue.poll();
       i++;
-
-//      topoSorted[i] = curr;
 
       for (int neighbour : adj.get(curr)) {
         inDegree[neighbour]--;

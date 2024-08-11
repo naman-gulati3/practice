@@ -61,6 +61,14 @@ public class MaxSumSubtree {
     root.right.right.left = new TreeNode(4);
     root.right.right.right = new TreeNode(6);
 
+    //             1
+    //           /   \
+    //          4     3
+    //        /  \   /  \
+    //       2    4  2   5
+    //                 /   \
+    //                4     6
+
     System.out.println(maxSumBST(root));
   }
 }

@@ -75,6 +75,7 @@ public class RootToNodePath {
 
 //    System.out.println(Paths(root));
     System.out.println(getPathToNode(root, 40));
+    System.out.println(getPathToLeafNodes(root));
   }
 
 }

@@ -26,6 +26,11 @@ public class CheckIfTreeIsBST {
     root.right = new TreeNode(4);
     root.right.left = new TreeNode(3);
     root.right.right = new TreeNode(6);
+    //          5
+    //        /   \
+    //       1     2
+    //           /   \
+    //          3     6
 
     System.out.println(isValidBST(root));
   }

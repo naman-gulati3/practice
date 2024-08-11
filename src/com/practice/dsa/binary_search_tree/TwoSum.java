@@ -7,8 +7,8 @@ public class TwoSum {
 
   static class BSTIterator {
 
-    private Stack<TreeNode> stack;
-    boolean isReverse = true;
+    private final Stack<TreeNode> stack;
+    boolean isReverse;
 
     public BSTIterator(TreeNode root, boolean isReverse) {
       this.stack = new Stack<>();

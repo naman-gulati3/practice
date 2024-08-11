@@ -31,6 +31,11 @@ public class CeilingInBST {
     root.left.right = new TreeNode<>(6);
 
     root.right = new TreeNode<>(15);
+    //        10
+    //       /
+    //      5
+    //    /   \
+    //   2     6
 
     System.out.println(findCeil(root, 3));
   }

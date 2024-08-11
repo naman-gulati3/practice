@@ -60,7 +60,7 @@ public class KthPermutation {
     helper(builder.toString().toCharArray(), 0, res);
     Collections.sort(res);
 
-    return res.get(k);
+    return res.get(k - 1);
   }
 
   private static void helper(char[] chars, int current, List<String> res) {

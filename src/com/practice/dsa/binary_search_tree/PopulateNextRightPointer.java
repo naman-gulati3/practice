@@ -62,6 +62,12 @@ public class PopulateNextRightPointer {
     root.right.left = new Node(6);
     root.right.right = new Node(7);
 
+    //      1
+    //    /   \
+    //   2     3
+    //  / \   /  \
+    // 4   5  6   7
+
     System.out.println(connect(root).val);
   }
 }

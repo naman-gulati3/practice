@@ -26,6 +26,11 @@ public class SymmetricBinaryTree {
     root.left.right = new TreeNode(3);
     root.right.left = new TreeNode(3);
 
+    //        1
+    //      /   \
+    //     2     2
+    //      \   /
+    //      3   3
     System.out.println(isSymmetric(root));
   }
 }

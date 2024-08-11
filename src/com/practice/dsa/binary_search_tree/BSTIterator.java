@@ -5,12 +5,11 @@ import java.util.Stack;
 
 public class BSTIterator {
 
-  private Stack<TreeNode> stack;
+  private final Stack<TreeNode> stack;
 
   public BSTIterator(TreeNode root) {
     this.stack = new Stack<>();
-    TreeNode node = root;
-    pushAll(node);
+    pushAll(root);
   }
 
   private void pushAll(TreeNode root) {

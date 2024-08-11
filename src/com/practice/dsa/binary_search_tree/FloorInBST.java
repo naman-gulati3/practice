@@ -42,6 +42,12 @@ public class FloorInBST {
 
     root.right = new TreeNode<>(15);
 
+    //           10
+    //         /   \
+    //        5     15
+    //      /   \
+    //     2     6
+
     System.out.println(floorInBST(root, 7));
   }
 }

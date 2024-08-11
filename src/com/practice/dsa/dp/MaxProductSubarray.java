@@ -30,6 +30,6 @@ public class MaxProductSubarray {
   }
 
   public static void main(String[] args) {
-    System.out.println(maxProduct(new int[]{-2, 0, -1})); // 60
+    System.out.println(maxProduct(new int[]{-2, 0, -1})); // 0
   }
 }

@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
-public class NextSmallerElement {
+public class PrevSmallerElement {
 
   public static int[] prevSmaller(int[] A) {
     Stack<Integer> stack = new Stack<>();
@@ -26,7 +26,27 @@ public class NextSmallerElement {
     return result;
   }
 
+  public static int[] nextSmaller(int[] arr) {
+    int[] result = new int[arr.length];
+    Stack<Integer> stack = new Stack<>();
+    Map<Integer, Integer> map = new HashMap<>();
+
+    for (int i = 0; i < arr.length; i++) {
+      int num = arr[i];
+      while (!stack.isEmpty() && stack.peek() > num) {
+        map.put(stack.pop(), num);
+      }
+      stack.push(num);
+    }
+
+    for (int i = 0; i < arr.length; i++) {
+      result[i] = map.getOrDefault(arr[i], -1);
+    }
+    return result;
+  }
+
   public static void main(String[] args) {
     System.out.println(Arrays.toString(prevSmaller(new int[]{4, 5, 2, 10, 8})));
+    System.out.println(Arrays.toString(nextSmaller(new int[]{4, 5, 2, 10, 8})));
   }
 }

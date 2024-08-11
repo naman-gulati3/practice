@@ -33,6 +33,9 @@ public class MorrisInorder {
   }
 
   public static void main(String[] args) {
+    //     1
+    //   /  \
+    //   2   3
     TreeNode root = new TreeNode(1);
     TreeNode right = new TreeNode(2);
     TreeNode left = new TreeNode(3);

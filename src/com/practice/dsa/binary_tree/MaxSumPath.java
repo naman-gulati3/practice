@@ -3,24 +3,24 @@ package com.practice.dsa.binary_tree;
 public class MaxSumPath {
 
   public static int maxPathSum(TreeNode root) {
-    int[] width = new int[1];
-    helper(root, width);
-    return width[0];
+    int[] maxPathSum = new int[1];
+    helper(root, maxPathSum);
+    return maxPathSum[0];
   }
 
-  private static int helper(TreeNode root, int[] width) {
+  private static int helper(TreeNode root, int[] maxPathSum) {
     if (root == null) {
       return 0;
     }
 
-    int left = helper(root.left, width);
-    int right = helper(root.right, width);
+    int leftMaxHeight = helper(root.left, maxPathSum);
+    int rightMaxHeight = helper(root.right, maxPathSum);
 
-    left = Math.max(0, left);
-    right = Math.max(0, right);
+    leftMaxHeight = Math.max(0, leftMaxHeight);
+    rightMaxHeight = Math.max(0, rightMaxHeight);
 
-    width[0] = Math.max(width[0], left + right + root.val);
-    return Math.max(left, right) + root.val;
+    maxPathSum[0] = Math.max(maxPathSum[0], leftMaxHeight + rightMaxHeight + root.val);
+    return Math.max(leftMaxHeight, rightMaxHeight) + root.val;
   }
 
   public static void main(String[] args) {

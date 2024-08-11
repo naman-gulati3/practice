@@ -65,7 +65,12 @@ public class BSTSerde {
     root.right.left = new TreeNode(4);
     root.right.right = new TreeNode(5);
 
-    System.out.println(inorderTraversal(root));
+    //         1
+    //       /   \
+    //      2     3
+    //          /   \
+    //         4     5
+
     var serde = new Codec();
     System.out.println(serde.serialize(root));
     System.out.println(serde.deserialize(serde.serialize(root)));

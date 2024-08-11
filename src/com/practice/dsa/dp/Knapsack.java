@@ -6,13 +6,13 @@ import java.util.List;
 
 public class Knapsack {
 
-  public static int maxProfit(ArrayList<Integer> values, ArrayList<Integer> weights, int idx,
+  public static int maxProfit(ArrayList<Integer> values, ArrayList<Integer> weights, int n,
       int w) {
-    int[][] dp = new int[idx][w + 1];
+    int[][] dp = new int[n][w + 1];
     for (int[] rows : dp) {
       Arrays.fill(rows, -1);
     }
-    return knapsack(values, weights, idx - 1, w, dp);
+    return knapsack(values, weights, n - 1, w, dp);
   }
 
   private static int knapsack(ArrayList<Integer> values, ArrayList<Integer> weights, int idx,

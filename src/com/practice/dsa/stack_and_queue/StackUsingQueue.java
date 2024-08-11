@@ -5,7 +5,7 @@ import java.util.Queue;
 
 public class StackUsingQueue {
 
-  class MyStack {
+  static class MyStack {
 
     private final Queue<Integer> q;
 
@@ -16,8 +16,7 @@ public class StackUsingQueue {
     public void push(int x) {
       q.add(x);
       for (int i = 0; i < q.size() - 1; i++) {
-        q.add(q.peek());
-        q.poll();
+        q.add(q.poll());
       }
     }
 
@@ -38,5 +37,15 @@ public class StackUsingQueue {
     public boolean empty() {
       return q.isEmpty();
     }
+  }
+
+  public static void main(String[] args) {
+    var s = new MyStack();
+    s.push(1);
+    s.push(2);
+//    s.push(3);
+//    s.push(4);
+//
+    System.out.println(s.pop());
   }
 }

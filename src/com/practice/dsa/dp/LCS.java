@@ -46,15 +46,12 @@ public class LCS {
     int m = text2.length();
 
     int[][] dp = new int[n + 1][m + 1];
-    for (int[] rows : dp) {
-      Arrays.fill(rows, -1);
-    }
-    // Initialize the first row and first column with zeros since LCS with an empty string is zero
+    // Initialize the first columns of each rows zeros since LCS with an empty string is zero
     for (int i = 0; i <= n; i++) {
       dp[i][0] = 0;
     }
 
-    // Initialize the first row and first column with zeros since LCS with an empty string is zero
+    // Initialize the first row of with zeros since LCS with an empty string is zero
     for (int i = 0; i <= m; i++) {
       dp[0][i] = 0;
     }

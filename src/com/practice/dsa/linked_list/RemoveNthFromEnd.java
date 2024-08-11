@@ -6,8 +6,9 @@ public class RemoveNthFromEnd {
 
   public static void main(String[] args) {
     ListNode res = removeNthFromEnd(
-        new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, null))))),
-        3);
+        new ListNode(1, new ListNode(2,
+            new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6, null)))))),
+        2);
     while (res != null) {
       System.out.println(res.val);
       res = res.next;

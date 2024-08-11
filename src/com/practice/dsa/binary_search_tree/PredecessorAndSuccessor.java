@@ -40,6 +40,12 @@ public class PredecessorAndSuccessor {
     TreeNode[] succ = new TreeNode[1];
     findPreSuc(root, pre, succ, 8);
 
+    //        8
+    //      /   \
+    //     1     9
+    //   /  \      \
+    //  3    4      10
+
     System.out.println(pre[0].val);
     System.out.println(succ[0].val);
   }
