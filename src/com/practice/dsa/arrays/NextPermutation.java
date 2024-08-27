@@ -19,20 +19,23 @@ public class NextPermutation {
     int breakPoint = -1;
     int n = nums.length;
 
-    for(int i = n - 2; i >= 0; i--) {
-      if(nums[i] < nums[i + 1]) {
+    for (int i = n - 2; i >= 0; i--) {
+      // if arr is in ascending order n - 1 is the breakpoint
+      // if arr is in descending order there is no breakpoint
+      if (nums[i] < nums[i + 1]) {
         breakPoint = i;
         break;
       }
     }
 
-    if(breakPoint == -1) {
+    // if arr is in descending next permutation is the same arr in ascending order
+    if (breakPoint == -1) {
       reverseArr(nums, 0, n - 1);
       return;
     }
 
-    for(int i = n - 1; i > breakPoint; i--) {
-      if(nums[i] > nums[breakPoint]) {
+    for (int i = n - 1; i > breakPoint; i--) {
+      if (nums[i] > nums[breakPoint]) {
         swap(nums, breakPoint, i);
         break;
       }
@@ -42,7 +45,7 @@ public class NextPermutation {
   }
 
   private static void reverseArr(int[] nums, int i, int n) {
-    while(i < n) {
+    while (i < n) {
       swap(nums, i, n);
       i++;
       n--;

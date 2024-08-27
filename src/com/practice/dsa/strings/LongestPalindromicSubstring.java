@@ -7,8 +7,8 @@ public class LongestPalindromicSubstring {
       return s;
     }
 
+    // first character is a palindrome in itself
     String maxString = s.substring(0, 1);
-
     for (int i = 0; i < s.length(); i++) {
       String odd = expandFromCenter(s, i, i);
       String even = expandFromCenter(s, i, i + 1);

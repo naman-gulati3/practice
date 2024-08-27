@@ -44,20 +44,20 @@ public class BellmanFord {
     int S = 0;
     ArrayList<ArrayList<Integer>> edges = new ArrayList<>() {
       {
-        add(new ArrayList<Integer>(Arrays.asList(3, 2, 6)));
-        add(new ArrayList<Integer>(Arrays.asList(5, 3, 1)));
-        add(new ArrayList<Integer>(Arrays.asList(0, 1, 5)));
-        add(new ArrayList<Integer>(Arrays.asList(1, 5, -3)));
-        add(new ArrayList<Integer>(Arrays.asList(1, 2, -2)));
-        add(new ArrayList<Integer>(Arrays.asList(3, 4, -2)));
-        add(new ArrayList<Integer>(Arrays.asList(2, 4, 3)));
+        add(new ArrayList<>(Arrays.asList(3, 2, 6)));
+        add(new ArrayList<>(Arrays.asList(5, 3, 1)));
+        add(new ArrayList<>(Arrays.asList(0, 1, 5)));
+        add(new ArrayList<>(Arrays.asList(1, 5, -3)));
+        add(new ArrayList<>(Arrays.asList(1, 2, -2)));
+        add(new ArrayList<>(Arrays.asList(3, 4, -2)));
+        add(new ArrayList<>(Arrays.asList(2, 4, 3)));
       }
     };
 
+    System.out.println(edges);
     int[] dist = bellman_ford(V, edges, S);
     for (int i = 0; i < V; i++) {
       System.out.print(dist[i] + " ");
     }
-    System.out.println();
   }
 }

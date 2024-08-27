@@ -18,7 +18,7 @@ public class CombinationSumII {
   }
 
   private static void recurse(int[] candidates, List<List<Integer>> result,
-      ArrayList<Integer> currentNums, int target, int i) {
+      List<Integer> currentNums, int target, int i) {
     if (i == candidates.length) {
       if (target == 0) {
         result.add(new ArrayList<>(currentNums));

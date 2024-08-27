@@ -2,12 +2,14 @@ package com.practice.dsa.stack_and_queue;
 
 public class QueueUsingArray {
 
-  class MyQueue {
+  static class MyQueue {
 
-    int front, rear, count;
-    int[] arr = new int[100005];
+    int front, rear, count, capacity;
+    int[] arr;
 
-    MyQueue() {
+    MyQueue(int capacity) {
+      this.capacity = capacity;
+      this.arr = new int[capacity];
       front = 0;
       rear = 0;
       count = 0;
@@ -15,26 +17,43 @@ public class QueueUsingArray {
 
     //Function to push an element x in a queue.
     void push(int x) {
-      if (count == arr.length) {
-        throw new IllegalArgumentException("Queue is full");
+      if (count == capacity) {
+        throw new IllegalArgumentException("Capacity is full");
       }
-      arr[rear % arr.length] = x;
-      rear++;
-      count++;
+      if (rear == -1) {
+        front = 0;
+        rear = 0;
+      } else {
+        rear = (rear + 1) % capacity;
+        arr[rear] = x;
+        count++;
+      }
     }
 
     //Function to pop an element from queue and return that element.
     int pop() {
-      if (count == 0) {
+      if (front == -1) {
         //queue is empty
+        throw new IllegalArgumentException("Queue is empty");
+      }
+
+      int popped = arr[front];
+      if (count == 1) {
+        front = -1;
+        rear = -1;
+      } else {
+        front = (front + 1) % capacity;
+        count--;
+      }
+      return popped;
+    }
+
+    int top() {
+      if (front == -1) {
         return -1;
       }
 
-      int elem = front % arr.length;
-      arr[front % arr.length] = -1;
-      front++;
-      count--;
-      return elem;
+      return arr[rear];
     }
   }
 }

@@ -8,6 +8,8 @@ public class PalindromePartitioningII {
     int[] dp = new int[str.length() + 1];
     Arrays.fill(dp, -1);
 
+    // -1 to remove the partition at the end for eg. for string "ABC"
+    // partitions will look like "A|B|C|" remove this extra partition at the end
     return topDown(dp, str, 0, str.length()) - 1;
   }
 

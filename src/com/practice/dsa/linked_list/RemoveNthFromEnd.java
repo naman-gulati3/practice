@@ -16,8 +16,8 @@ public class RemoveNthFromEnd {
   }
   // n = 4
 
-  //slow,fast -> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> null
-  //                 slow               fast
+  //slow,fast -> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> null
+  //                                 slow          fast
 
   // dummy -> 1 -> 2 -> null
   //         slow       fast

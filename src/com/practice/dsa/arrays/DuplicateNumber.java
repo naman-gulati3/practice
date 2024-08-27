@@ -20,6 +20,6 @@ public class DuplicateNumber {
   }
 
   public static void main(String[] args) {
-    System.out.println(findDuplicate(new int[]{1, 3, 4, 2, 2}));
+    System.out.println(findDuplicate(new int[]{2, 5, 9, 6, 9, 3, 8, 9, 7, 1}));
   }
 }

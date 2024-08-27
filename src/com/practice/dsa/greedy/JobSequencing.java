@@ -9,10 +9,10 @@ public class JobSequencing {
 
     int id, profit, deadline;
 
-    Job(int x, int y, int z) {
-      this.id = x;
-      this.deadline = y;
-      this.profit = z;
+    Job(int id, int deadline, int profit) {
+      this.id = id;
+      this.deadline = deadline;
+      this.profit = profit;
     }
 
     @Override
@@ -31,7 +31,7 @@ public class JobSequencing {
     jobs[1] = new Job(2, 1, 10);
     jobs[2] = new Job(3, 1, 40);
     jobs[3] = new Job(4, 1, 30);
-    // 1-40, 2-20
+    // 1-40, 1-30, 1-40, 1-10
     System.out.println(Arrays.toString(JobScheduling(jobs, 4)));
   }
 

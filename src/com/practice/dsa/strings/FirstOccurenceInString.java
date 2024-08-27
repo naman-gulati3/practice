@@ -1,7 +1,5 @@
 package com.practice.dsa.strings;
 
-import java.util.Arrays;
-
 public class FirstOccurenceInString {
 
   public static int strStr(String haystack, String needle) {
@@ -27,7 +25,6 @@ public class FirstOccurenceInString {
     }
 
     int[] lps = computeLPSArray(needle);
-    System.out.println(Arrays.toString(lps));
 
     int i = 0;
     int j = 0;

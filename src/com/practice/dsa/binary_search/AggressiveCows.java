@@ -13,6 +13,7 @@ public class AggressiveCows {
 
   public static int aggressiveCows(int[] stalls, int k) {
     int n = stalls.length;
+    // 0, 3, 4, 7, 9, 10
     Arrays.sort(stalls);
 
     int low = 1;
@@ -28,17 +29,17 @@ public class AggressiveCows {
     return high;
   }
 
-  private static boolean canBePlaced(int[] stalls, int k, int mid) {
+  private static boolean canBePlaced(int[] stalls, int numCows, int mid) {
     int n = stalls.length;
     int cntCows = 1;
     int lastSeen = stalls[0];
 
     for (int i = 0; i < n; i++) {
-      if (stalls[i] - lastSeen >= k) {
+      if (stalls[i] - lastSeen >= mid) {
         cntCows++;
         lastSeen = stalls[i];
       }
     }
-    return cntCows >= mid;
+    return cntCows >= numCows;
   }
 }

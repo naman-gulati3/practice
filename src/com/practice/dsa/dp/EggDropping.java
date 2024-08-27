@@ -32,7 +32,7 @@ public class EggDropping {
 
     int min = Integer.MAX_VALUE;
     for (int f = 1; f <= floors; f++) {
-      //                                        breaks                             unbroken
+      //                                        breaks                             unbroken(check floor above f since floors > f)
       int res = 1 + Math.max(topDown(eggs - 1, f - 1, dp), topDown(eggs, floors - f, dp));
       min = Math.min(res, min);
     }

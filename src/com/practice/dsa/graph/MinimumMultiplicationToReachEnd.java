@@ -30,8 +30,8 @@ public class MinimumMultiplicationToReachEnd {
       int adjNode = pair.adjNode;
       int stepsCount = pair.steps;
 
-      for (int i = 0; i < arr.length; i++) {
-        int num = (arr[i] * adjNode) % mod;
+      for (int i : arr) {
+        int num = (i * adjNode) % mod;
         if (stepsCount + 1 < steps[num]) {
           steps[num] = stepsCount + 1;
           if (num == end) {

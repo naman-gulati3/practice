@@ -20,9 +20,9 @@ public class FractionalKnapsack {
 
     int value, weight;
 
-    Item(int x, int y) {
-      this.value = x;
-      this.weight = y;
+    Item(int value, int weight) {
+      this.value = value;
+      this.weight = weight;
     }
 
     @Override

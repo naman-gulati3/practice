@@ -34,14 +34,12 @@ public class PalindromePartitioning {
   }
 
   private static boolean isPalimdrome(String s, int current, int i) {
-    int left = current;
-    int right = i;
-    while (left < right) {
-      if (s.charAt(left) != s.charAt(right)) {
+    while (current < i) {
+      if (s.charAt(current) != s.charAt(i)) {
         return false;
       }
-      left++;
-      right--;
+      current++;
+      i--;
     }
     return true;
   }

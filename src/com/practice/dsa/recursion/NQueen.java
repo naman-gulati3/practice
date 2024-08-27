@@ -32,11 +32,11 @@ public class NQueen {
       return;
     }
 
-    for (int i = 0; i < board.length; i++) {
-      if (isSafe(board, row, i)) {
-        board[row][i] = 'Q';
+    for (int col = 0; col < board.length; col++) {
+      if (isSafe(board, row, col)) {
+        board[row][col] = 'Q';
         recurse(result, row + 1, board);
-        board[row][i] = '.';
+        board[row][col] = '.';
       }
     }
   }
@@ -44,6 +44,7 @@ public class NQueen {
   private static boolean isSafe(char[][] board, int row, int col) {
     int n = board.length;
 
+    // check if column is safe for each row
     for (int i = 0; i < row; i++) {
       if (board[i][col] == 'Q') {
         return false;

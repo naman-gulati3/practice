@@ -38,6 +38,7 @@ public class PrimsAlgorithm {
       }
       visited[node] = true;
       sum += weight;
+      // parents is not part of the computation of MST cost. It is added just to find the parents of each node
       parents.add(tuple.parent);
       for (int[] neighbour : adj.get(node)) {
         // first index denotes endpoint of edge

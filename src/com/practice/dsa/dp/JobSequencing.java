@@ -19,6 +19,7 @@ public class JobSequencing {
   public static int jobScheduling(int[] startTime, int[] endTime, int[] profit) {
     int n = startTime.length;
     int[] dp = new int[n + 1];
+    Arrays.fill(dp, -1);
 
     Job[] jobs = new Job[n];
 
@@ -26,37 +27,42 @@ public class JobSequencing {
       jobs[i] = new Job(startTime[i], endTime[i], profit[i]);
     }
 
-    Arrays.sort(jobs, Comparator.comparingInt(j -> j.endTime));
+    Arrays.sort(jobs, Comparator.comparingInt(j -> j.startTime));
 
-    Arrays.fill(dp, -1);
-
-    for (int i = 0; i < n; i++) {
-      int jobEndTime = jobs[i].endTime;
-      int jobStartTime = jobs[i].startTime;
-      int jobProfit = jobs[i].profit;
-
-      int latestNonConflictingJob = upperBound(jobs, i, jobStartTime);
-      dp[i + 1] = Math.max(dp[i], dp[latestNonConflictingJob] + jobProfit);
-    }
-    return dp[n];
+    return solve(0, dp, jobs);
   }
 
-  private static int upperBound(Job[] jobs, int end, int target) {
-    int low = 0;
-    int high = end;
-    while (low < high) {
-      int mid = (low + high) / 2;
-      if (jobs[mid].endTime <= target) {
-        high = mid - 1;
-      } else {
-        low = mid + 1;
+  private static int solve(int i, int[] dp, Job[] jobs) {
+    if (i == jobs.length) {
+      return 0;
+    }
+
+    if (dp[i] != -1) {
+      return dp[i];
+    }
+    // 1, 2, 3, 3
+    // 3, 4, 5, 6
+
+    int j = i + 1;
+    // find next non overlapping job
+    while (j < jobs.length) {
+      if (jobs[i].endTime <= jobs[j].startTime) {
+        break;
       }
+      j++;
     }
-    return low;
+
+    int notTake = solve(i + 1, dp, jobs);
+    int take = jobs[i].profit + solve(j, dp, jobs);
+    int result = Math.max(notTake, take);
+    dp[i] = result;
+    return dp[i];
   }
+
 
   public static void main(String[] args) {
     System.out.println(
+        //                       startTime               endTime                  profit
         jobScheduling(new int[]{1, 2, 3, 3}, new int[]{3, 4, 5, 6}, new int[]{50, 10, 40, 70}));
   }
 }

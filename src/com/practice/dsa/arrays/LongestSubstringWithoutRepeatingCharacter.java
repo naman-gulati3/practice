@@ -25,7 +25,16 @@ public class LongestSubstringWithoutRepeatingCharacter {
         maxString = Math.max(maxString, r - l + 1);
       } else {
         while (set.contains(s.charAt(r))) {
+
+          /*
+           at pww where set contains p and w we trim down the window from start and keep on trimming
+           down window from start and moving l until it reaches r (on second w of pww)
+           Not l is at second w and r is also at same position
+
+           Now the check for new window begins because we break out of this inner while loop
+           **/
           set.remove(s.charAt(l));
+
           l++;
         }
         set.add(s.charAt(r));

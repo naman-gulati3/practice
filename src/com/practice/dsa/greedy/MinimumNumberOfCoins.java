@@ -59,8 +59,61 @@ public class MinimumNumberOfCoins {
     return V == 0 ? coinCount : -1;
   }
 
+  public static int minCoinsDp2(int[] coins, int M, int V) {
+    int[][] dp = new int[M + 1][V + 1];
+    for (int[] rows : dp) {
+      Arrays.fill(rows, -1);
+    }
+
+    int numCoins = solve2(coins, M - 1, V, dp);
+    return numCoins == Integer.MAX_VALUE ? -1 : numCoins;
+  }
+
+  private static int solve2(int[] coins, int M, int V, int[][] dp) {
+    if (M == 0) {
+      if (V % coins[0] == 0) {
+        return V / coins[0];
+      }
+      return Integer.MAX_VALUE;
+    }
+
+    if (dp[M][V] != -1) {
+      return dp[M][V];
+    }
+
+    // not pick
+    int notPick = solve2(coins, M - 1, V, dp);
+
+    int pick = Integer.MAX_VALUE;
+
+    if (coins[M] <= V) {
+      int result = solve2(coins, M, V - coins[M], dp);
+      if (result != Integer.MAX_VALUE) {
+        pick = 1 + result;
+      }
+    }
+    dp[M][V] = Math.min(pick, notPick);
+    return dp[M][V];
+  }
+
+
   public static void main(String[] args) {
+    //    0  1 2  3
+    // 0  0  0 0  0
+    // 1  0  1 0  0
+    // 2  0  2 1  0
+    // 3  0  3 2  1
+    // 4  0  4 2  2
+    // 5  0  5 2  2
+    // 6  0  6 3  2
+    // 7  0
+    // 8  0
+    // 9  0
+    // 10 0
+    // 11 0
+
     System.out.println(minCoins(new int[]{9, 6, 5, 1}, 4, 11));
     System.out.println(minCoinsDp(new int[]{9, 6, 5, 1}, 4, 11));
+    System.out.println(minCoinsDp2(new int[]{9, 6, 5, 1}, 4, 11));
   }
 }

@@ -41,7 +41,7 @@ public class RotateLinkedListByKSteps {
     // 0, 1, 2
     // 2, 1, 0 -> 4 rotations
     ListNode rotated = rotateRight(
-        new ListNode(0, new ListNode(1, new ListNode(2, null))), 4);
+        new ListNode(0, new ListNode(1, new ListNode(2, new ListNode(3, null)))), 2);
     while (rotated != null) {
       System.out.println(rotated.val);
       rotated = rotated.next;

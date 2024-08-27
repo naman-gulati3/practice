@@ -12,21 +12,21 @@ public class DijkstraShortestPath {
 
   }
 
-  public static List<Integer> shortestPath(int n, int m, int[][] edges) {
+  public static List<Integer> shortestPath(int V, int E, int[][] edges) {
     List<List<Pair>> adjList = new ArrayList<>();
-    for (int i = 0; i <= n; i++) {
+    for (int i = 0; i <= V; i++) {
       adjList.add(new ArrayList<>());
     }
 
-    for (int i = 0; i < m; i++) {
+    for (int i = 0; i < E; i++) {
       adjList.get(edges[i][0]).add(new Pair(edges[i][1], edges[i][2]));
       adjList.get(edges[i][1]).add(new Pair(edges[i][0], edges[i][2]));
     }
 
     PriorityQueue<Pair> pq = new PriorityQueue<>(Comparator.comparingInt(i -> i.weight));
-    int[] distances = new int[n + 1];
-    int[] parents = new int[n + 1];
-    for (int i = 1; i <= n; i++) {
+    int[] distances = new int[V + 1];
+    int[] parents = new int[V + 1];
+    for (int i = 1; i <= V; i++) {
       distances[i] = Integer.MAX_VALUE;
       parents[i] = i;
     }
@@ -51,12 +51,12 @@ public class DijkstraShortestPath {
     }
 
     List<Integer> path = new ArrayList<>();
-    if (distances[n] == Integer.MAX_VALUE) {
+    if (distances[V] == Integer.MAX_VALUE) {
       path.add(-1);
       return path;
     }
 
-    int node = n;
+    int node = V;
     while (parents[node] != node) {
       path.add(node);
       node = parents[node];

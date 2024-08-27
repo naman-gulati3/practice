@@ -40,11 +40,11 @@ public class MstUsingKruskalAlgo {
       }
 
       if (rank.get(ultimateUParent) < rank.get(ultimateVParent)) {
-        parent.set(ultimateVParent, ultimateUParent);
+        parent.set(ultimateUParent, ultimateVParent);
       } else if (rank.get(ultimateUParent) > rank.get(ultimateVParent)) {
-        parent.set(ultimateUParent, ultimateVParent);
+        parent.set(ultimateVParent, ultimateUParent);
       } else {
-        parent.set(ultimateUParent, ultimateVParent);
+        parent.set(ultimateVParent, ultimateUParent);
         int rankU = rank.get(ultimateUParent);
         rank.set(ultimateUParent, rankU + 1);
       }
@@ -82,37 +82,40 @@ public class MstUsingKruskalAlgo {
     }
   }
 
-  static int spanningTree(int V,
-      ArrayList<ArrayList<ArrayList<Integer>>> adj) {
+  static int spanningTree(int V, List<List<List<Integer>>> adj) {
     List<Edge> edges = new ArrayList<>();
+
     for (int i = 0; i < V; i++) {
       for (int j = 0; j < adj.get(i).size(); j++) {
         int adjNode = adj.get(i).get(j).get(0);
-        int edgeWeight = adj.get(i).get(j).get(1);
+        int weight = adj.get(i).get(j).get(1);
 
-        edges.add(new Edge(edgeWeight, i, adjNode));
+        if (i < adjNode) { // To prevent adding both directions of the edge
+          edges.add(new Edge(i, adjNode, weight));
+        }
       }
     }
 
     DisjointSet ds = new DisjointSet(V);
-    edges.sort(Comparator.comparingInt(value -> value.weight));
+    edges.sort(Comparator.comparingInt(e -> e.weight));
     int mstWeight = 0;
-    for (int i = 0; i < V; i++) {
-      int wt = edges.get(i).weight;
-      int v = edges.get(i).dest;
-      int u = edges.get(i).src;
+    for (Edge edge : edges) {
+      int source = edge.src;
+      int destination = edge.dest;
+      int weight = edge.weight;
 
-      if (ds.findUltimateParent(u) != ds.findUltimateParent(v)) {
-        mstWeight += wt;
-        ds.unionBySize(u, v);
+      if (ds.findUltimateParent(source) != ds.findUltimateParent(destination)) {
+        mstWeight += weight;
+        ds.unionBySize(source, destination);
       }
     }
+
     return mstWeight;
   }
 
   public static void main(String[] args) {
     int V = 5;
-    ArrayList<ArrayList<ArrayList<Integer>>> adj = new ArrayList<ArrayList<ArrayList<Integer>>>();
+    List<List<List<Integer>>> adj = new ArrayList<>();
     int[][] edges = {{0, 1, 2}, {0, 2, 1}, {1, 2, 1}, {2, 3, 2}, {3, 4, 1}, {4, 2, 2}};
 
     for (int i = 0; i < V; i++) {

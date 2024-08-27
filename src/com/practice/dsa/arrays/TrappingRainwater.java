@@ -10,6 +10,7 @@ public class TrappingRainwater {
     int max = 0;
 
     while (left < right) {
+      // on the right there is some building taller than left building
       if (height[left] <= height[right]) {
         if (height[left] >= leftMax) {
           leftMax = height[left];

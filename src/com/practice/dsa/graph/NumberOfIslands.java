@@ -13,9 +13,15 @@ public class NumberOfIslands {
 
   public static int numIslands(char[][] grid) {
     int count = 0;
+    boolean[][] visited = new boolean[grid.length][grid[0].length];
 
     for (int i = 0; i < grid.length; i++) {
       for (int j = 0; j < grid[0].length; j++) {
+//        if (grid[i][j] == '1' && !visited[i][j]) {
+//          bfs(i, j, visited, grid);
+//          count++;
+//        }
+
         if (grid[i][j] == '1') {
           dfs(i, j, grid);
           count++;

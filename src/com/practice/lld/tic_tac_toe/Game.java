@@ -3,6 +3,7 @@ package com.practice.lld.tic_tac_toe;
 import java.util.Scanner;
 
 public class Game {
+
   private final Player player1;
   private final Player player2;
   private final Board board;
@@ -19,7 +20,12 @@ public class Game {
   public void play() {
     board.printGrid();
 
-    while(!board.isFull() && !board.hasWinner()) {
+    while (true) {
+      if (board.isFull()) {
+        System.out.println("Game Draw");
+        return;
+
+      }
       System.out.printf("Player %s 's turn%n", currentPlayer.name());
       int row = getValidInput("Enter row (0 - 2):");
       int col = getValidInput("Enter column (0 - 2):");
@@ -27,17 +33,15 @@ public class Game {
       try {
         board.makeMove(row, col, currentPlayer.move().getSymbol());
         board.printGrid();
+
+        if (board.hasWinner()) {
+          System.out.println(currentPlayer.name() + " won!");
+          return;
+        }
         switchPlayer();
       } catch (IllegalArgumentException e) {
         System.out.println(e.getMessage());
       }
-    }
-
-    if(board.hasWinner()) {
-      switchPlayer();
-      System.out.println(currentPlayer.name() + " is winner!");
-    } else {
-      System.out.println("Game draw");
     }
   }
 
@@ -51,9 +55,9 @@ public class Game {
 
     while (true) {
       System.out.println(message);
-      if(scanner.hasNextInt()) {
+      if (scanner.hasNextInt()) {
         input = scanner.nextInt();
-        if(input >= 0 && input <= 2) {
+        if (input >= 0 && input <= 2) {
           return input;
         }
       } else {

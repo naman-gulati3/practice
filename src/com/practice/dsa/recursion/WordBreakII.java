@@ -12,16 +12,17 @@ public class WordBreakII {
   }
 
   public static List<String> wordBreak(String s, List<String> wordDict) {
-    Set<String> dict = new HashSet<>(wordDict);
     List<String> result = new ArrayList<>();
 
-    recurse(s, dict, result, 0, "");
+    recurse(s, new HashSet<>(wordDict), result, 0, "");
+//    recurse(0, 0, result, new ArrayList<>(), new HashSet<>(wordDict), s);
     return result;
   }
 
   private static void recurse(String str, Set<String> dict, List<String> result, int start,
       String currentStr) {
     if (start == str.length()) {
+      // -1 because empty string is at appended to string
       result.add(currentStr.substring(0, currentStr.length() - 1));
       return;
     }
@@ -34,5 +35,28 @@ public class WordBreakII {
 
       recurse(str, dict, result, i + 1, currentStr + subStr + " ");
     }
+  }
+
+  private static void recurse(int start, int end, List<String> result, List<String> curr,
+      Set<String> dict,
+      String str) {
+    if (end == str.length() - 1) {
+      if (dict.contains(str.substring(start, end + 1))) {
+        curr.add(str.substring(start, end + 1));
+        result.add(String.join(" ", curr));
+        curr.remove(curr.size() - 1);
+      }
+      return;
+    }
+
+    // pick
+    if (dict.contains(str.substring(start, end + 1))) {
+      curr.add(str.substring(start, end + 1));
+      recurse(start + 1, end + 1, result, curr, dict, str);
+      curr.remove(curr.size() - 1);
+    }
+
+    // not pick
+    recurse(start, end + 1, result, curr, dict, str);
   }
 }

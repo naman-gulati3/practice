@@ -24,8 +24,7 @@ public class FourSum {
       for (int j = i + 1; j < nums.length; j++) {
         Set<Integer> remaining = new HashSet<>();
         for (int k = j + 1; k < nums.length; k++) {
-          int sum = nums[i] + nums[j];
-          sum += nums[k];
+          int sum = nums[i] + nums[j] + nums[k];
           int fourth = target - sum;
           if (remaining.contains(fourth)) {
             List<Integer> sol = new ArrayList<>(List.of(nums[i], nums[j], nums[k], fourth));

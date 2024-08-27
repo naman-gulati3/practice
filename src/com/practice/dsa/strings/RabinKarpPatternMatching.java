@@ -2,6 +2,7 @@ package com.practice.dsa.strings;
 
 public class RabinKarpPatternMatching {
 
+  private static final double PRIME = 7;
 
   public static int repeatedStringMatch(String a, String b) {
     StringBuilder s = new StringBuilder(a);
@@ -24,45 +25,49 @@ public class RabinKarpPatternMatching {
     return -1;
   }
 
-  public static int repeatedStringMatch2(String a, String b) {
-    long patternHash = calculateHash(a);
+  public static int repeatedStringMatch2(String pattern, String text) {
+    double patternHash = calculateHash(pattern);
+    double strHash = calculateHash(text.substring(0, pattern.length()));
     int count = 0;
-//    System.out.println(patternHash);
-    for (int i = 0; i < b.length() - a.length() + 1; i++) {
-      long textHash = calculateHash(b.substring(i, i + a.length()));
-      if (patternHash == textHash) {
-        boolean isSame = checkWindow(b.substring(i, i + a.length()), a);
-        if (isSame) {
-          count++;
+    for (int i = 0; i < text.length() - pattern.length(); i++) {
+      String textWindow = text.substring(i, i + pattern.length());
+      if (strHash == patternHash) {
+        if (checkWindow(textWindow, pattern)) {
+          return count;
         }
+      }
+
+      if (i < text.length() - pattern.length()) {
+        strHash = updateHash(strHash, text.charAt(i), text.charAt(i + pattern.length()),
+            pattern.length());
       }
     }
     return count;
   }
 
   private static boolean checkWindow(String window, String a) {
-    int i = 0;
-    int j = 0;
-
-    while (i < window.length() && j < a.length()) {
-      if (window.charAt(i) != a.charAt(j)) {
-        return false;
-      }
-      i++;
-      j++;
-    }
-    return true;
+    return window.equals(a);
   }
 
-  private static long calculateHash(String s) {
-    long hash = 0;
-    for (int i = 0; i < s.length(); i++) {
-      hash += (long) Math.pow(256, s.length() - i - 1) % 101;
+  private static double calculateHash(String pattern) {
+    double hash = 0;
+    for (int i = 0; i < pattern.length(); i++) {
+      hash = hash + pattern.charAt(i) * Math.pow(PRIME, i);
     }
     return hash;
   }
 
+  private static double updateHash(double prevHash, char oldChar, char newChar, int patternLength) {
+    double newHash = (prevHash - oldChar) / PRIME;
+    // patternLength - 1 because we are only updating the hash with last character so its index in this window
+    // will always be patternLength - 1 (refer to the loop above in calculateHash which goes from 0 to patternLength - 1)
+    newHash = newHash + newChar * Math.pow(PRIME, patternLength - 1);
+    return newHash;
+  }
+
+
   public static void main(String[] args) {
     System.out.println(repeatedStringMatch("abcd", "cdabcdab"));
+    System.out.println(repeatedStringMatch2("abcd", "cdabcdab"));
   }
 }

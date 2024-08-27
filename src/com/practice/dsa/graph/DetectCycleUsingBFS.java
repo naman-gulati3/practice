@@ -21,6 +21,8 @@ public class DetectCycleUsingBFS {
       adj.get(2).add(1);
       adj.get(2).add(3);
       adj.get(3).add(2);
+      adj.get(1).add(3);
+      adj.get(3).add(1);
       // 1 ---- 2
       //        |
       //        3
@@ -46,6 +48,7 @@ public class DetectCycleUsingBFS {
       int node) {
     Queue<Pair> queue = new LinkedList<>();
     queue.offer(new Pair(node, -1));
+    visited[node] = true;
 
     while (!queue.isEmpty()) {
       Pair pair = queue.poll();

@@ -4,7 +4,7 @@ public class NthRoot {
 
   public static void main(String[] args) {
     System.out.println(NthRoot(3, 27));
-    System.out.println(NthRoot2(3, 27));
+//    System.out.println(NthRoot2(9, 1953125));
   }
 
   public static int NthRoot(int n, int m) {
@@ -36,6 +36,7 @@ public class NthRoot {
       for (int i = 0; i < n; i++) {
         check *= potentialRoot;
       }
+      System.out.printf("check %s\n", check);
 
       if (Math.abs(check - m) < eps) {
         return potentialRoot;
@@ -62,14 +63,14 @@ public class NthRoot {
     return -1;
   }
 
-  private static int getPotentialRoot(int mid, int n, int m) {
-    int ans = 1;
-    for (int i = 1; i <= n; i++) {
-      ans *= mid;
+  private static int getPotentialRoot(int potentialRoot, int root, int num) {
+    double ans = 1;
+    for (int i = 1; i <= root; i++) {
+      ans *= potentialRoot;
     }
-    if (ans == m) {
+    if (ans == num) {
       return 0;
-    } else if (ans > mid) {
+    } else if (ans > potentialRoot) {
       return 2;
     }
     return 1;

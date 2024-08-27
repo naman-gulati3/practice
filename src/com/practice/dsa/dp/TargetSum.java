@@ -51,6 +51,8 @@ public class TargetSum {
 
   public static void main(String[] args) {
     System.out.println(findTargetSumWays(new int[]{1, 2, 1}, 0));
+    // -1 - 1 + 2
+    // +1 + 1 - 2
     System.out.println(findTargetSumWays(new int[]{1, 1, 1, 1, 1}, 3));
   }
 }

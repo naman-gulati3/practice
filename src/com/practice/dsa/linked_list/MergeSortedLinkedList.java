@@ -103,6 +103,10 @@ public class MergeSortedLinkedList {
 
 
   public static void main(String[] args) {
+    // 1 -> 2 -> 3 -> 4 -> null
+    // 2 -> 5 -> 8 -> 10 -> null
+
+    // 1 -> 2 -> 2 -> 3 -> 4 -> 5 -> 8 -> 10 -> null
     ListNode merged = mergeTwoListsInPlace(
         new ListNode(2, null),
         new ListNode(1, null));

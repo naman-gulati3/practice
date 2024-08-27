@@ -4,10 +4,10 @@ import java.util.Stack;
 
 public class QueueUsingStack {
 
-  class MyQueue {
+  static class MyQueue {
 
-    private Stack<Integer> inputStack;
-    private Stack<Integer> outputStack;
+    private final Stack<Integer> inputStack;
+    private final Stack<Integer> outputStack;
 
     public MyQueue() {
       inputStack = new Stack<>();

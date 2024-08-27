@@ -17,14 +17,13 @@ public class FloodFill {
     int[][] result = image.clone();
     int initialColor = image[sr][sc];
 
-//    dfs(image, result, sr, sc, color, initialColor);
+    dfs(image, result, sr, sc, color, initialColor);
     bfs(image, sr, sc, color, result, initialColor);
     return result;
   }
 
   private static void bfs(int[][] image, int sr, int sc, int color, int[][] result,
       int initialColor) {
-    result[sr][sc] = initialColor;
     Queue<Pair> queue = new LinkedList<>();
     queue.offer(new Pair(sr, sc));
 
@@ -61,6 +60,9 @@ public class FloodFill {
   }
 
   public static void main(String[] args) {
+    // 1 1 1
+    // 1 1 0
+    // 1 0 1
     System.out.println(
         Arrays.deepToString(floodFill(new int[][]{{1, 1, 1}, {1, 1, 0}, {1, 0, 1}}, 1, 1, 2)));
   }

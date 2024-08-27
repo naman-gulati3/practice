@@ -9,6 +9,11 @@ public class IntersectionOfLinkedList {
         new ListNode(4, new ListNode(1, new ListNode(8, new ListNode(4, new ListNode(5, null))))),
         new ListNode(5, new ListNode(6,
             new ListNode(1, new ListNode(8, new ListNode(4, new ListNode(5, null)))))));
+
+    // 4 -> 1 -> 8 -> 4 -> 5 -> null
+    //                ^
+    //                |
+    // 5 -> 6 -> 1 -> 8
     System.out.println(result.val);
   }
 
