@@ -5,10 +5,11 @@ import com.practice.dsa.linked_list.MergeSortedLinkedList.ListNode;
 public class IntersectionOfLinkedList {
 
   public static void main(String[] args) {
+    ListNode dup = new ListNode(4, new ListNode(5, null));
     ListNode result = getIntersectionNode(
-        new ListNode(4, new ListNode(1, new ListNode(8, new ListNode(4, new ListNode(5, null))))),
+        new ListNode(4, new ListNode(1, new ListNode(8, dup))),
         new ListNode(5, new ListNode(6,
-            new ListNode(1, new ListNode(8, new ListNode(4, new ListNode(5, null)))))));
+            new ListNode(1, new ListNode(8, dup)))));
 
     // 4 -> 1 -> 8 -> 4 -> 5 -> null
     //                ^

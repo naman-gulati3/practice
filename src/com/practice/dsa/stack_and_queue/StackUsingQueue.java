@@ -7,7 +7,7 @@ public class StackUsingQueue {
 
   static class MyStack {
 
-    private final Queue<Integer> q;
+    final Queue<Integer> q;
 
     public MyStack() {
       q = new LinkedList<>();
@@ -43,9 +43,9 @@ public class StackUsingQueue {
     var s = new MyStack();
     s.push(1);
     s.push(2);
-//    s.push(3);
-//    s.push(4);
-//
-    System.out.println(s.pop());
+    s.push(3);
+    s.push(4);
+
+    System.out.println(s.q);
   }
 }

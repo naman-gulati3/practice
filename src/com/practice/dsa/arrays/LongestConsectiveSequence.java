@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class LongestConsectiveSequence {
 
   public static void main(String[] args) {
+    // 0, 0, 1, 2, 3, 4, 5, 6, 7, 8
     System.out.println(longestConsecutive(new int[]{0, 3, 7, 2, 5, 8, 4, 6, 0, 1}));
   }
 
@@ -15,7 +16,6 @@ public class LongestConsectiveSequence {
 
     int lastSeenSmallest;
     Arrays.sort(nums);
-    System.out.println(Arrays.toString(nums));
     int currentSequenceLength = 1;
     int longestSequence = 1;
     for (int i = 1; i < nums.length; i++) {

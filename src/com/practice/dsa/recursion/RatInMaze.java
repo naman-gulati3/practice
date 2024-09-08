@@ -18,7 +18,14 @@ public class RatInMaze {
     int[] idirections = new int[]{1, 0, 0, -1};
     int[] jdirections = new int[]{0, -1, 1, 0};
 
-    solve(0, 0, m, n, result, "", new boolean[n][n], idirections, jdirections);
+    if (m[0][0] != 1) {
+      return result;
+    }
+
+    boolean[][] visited = new boolean[n][n];
+    visited[0][0] = true;
+
+    solve(0, 0, m, n, result, "", visited, idirections, jdirections);
 //    solve2(0, 0, m, n, result, "", new boolean[n][n]);
     return result;
   }

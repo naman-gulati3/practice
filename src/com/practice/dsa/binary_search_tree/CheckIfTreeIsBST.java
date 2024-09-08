@@ -5,7 +5,7 @@ import com.practice.dsa.binary_tree.TreeNode;
 public class CheckIfTreeIsBST {
 
   public static boolean isValidBST(TreeNode root) {
-    return isValidBST(root, Long.MAX_VALUE, Long.MIN_VALUE);
+    return isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
   }
 
   private static boolean isValidBST(TreeNode root, long min, long max) {

@@ -10,7 +10,7 @@ public class ReverseNodesInKGroups {
         2);
 
     while (reversed != null) {
-      System.out.println(reversed.val);
+//      System.out.println(reversed.val);
       reversed = reversed.next;
     }
   }
@@ -39,7 +39,6 @@ public class ReverseNodesInKGroups {
     while (count >= k) {
       curr = prev.next;
       next = curr.next;
-
       for (int i = 1; i < k; i++) {
         curr.next = next.next;
         next.next = prev.next;

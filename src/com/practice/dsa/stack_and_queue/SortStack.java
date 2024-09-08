@@ -13,7 +13,7 @@ public class SortStack {
   }
 
   private static void insertInCorrectPosition(Stack<Integer> stack, int top) {
-    if (stack.isEmpty() || stack.peek() < top) {
+    if (stack.isEmpty() || stack.peek() > top) {
       stack.push(top);
     } else {
       int temp = stack.pop();
@@ -32,7 +32,7 @@ public class SortStack {
       }
       auxStack.push(top);
     }
- 
+
     while (!auxStack.isEmpty()) {
       stack.push(auxStack.pop());
     }
@@ -46,7 +46,7 @@ public class SortStack {
     s.push(1);
     s.push(5);
     s.push(2);
-    sortStack2(s);
+    sortStack(s);
     System.out.println(s);
   }
 }

@@ -20,7 +20,6 @@ public class LargestRectangleInHistogram {
       if (stack.isEmpty()) {
         leftSmall[i] = 0;
       } else {
-        // The +1 adjusts the index to reflect the start of the valid range for the rectangle.
         leftSmall[i] = stack.peek() + 1;
       }
       stack.push(i);

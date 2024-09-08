@@ -14,7 +14,7 @@ public class CombinationSum {
     List<List<Integer>> result = new ArrayList<>();
 
     Arrays.sort(candidates);
-    recurse(candidates, result, new ArrayList<>(), target, 0);
+    recurse2(result, new ArrayList<>(), candidates, target, 0);
     return result;
   }
 

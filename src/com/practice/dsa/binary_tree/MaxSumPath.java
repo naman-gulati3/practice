@@ -4,6 +4,7 @@ public class MaxSumPath {
 
   public static int maxPathSum(TreeNode root) {
     int[] maxPathSum = new int[1];
+    maxPathSum[0] = Integer.MIN_VALUE;
     helper(root, maxPathSum);
     return maxPathSum[0];
   }
@@ -25,10 +26,10 @@ public class MaxSumPath {
 
   public static void main(String[] args) {
     TreeNode root = new TreeNode(-10);
-    root.left = new TreeNode(9);
-    root.right = new TreeNode(20);
-    root.right.left = new TreeNode(15);
-    root.right.right = new TreeNode(7);
+//    root.left = new TreeNode(9);
+//    root.right = new TreeNode(20);
+//    root.right.left = new TreeNode(15);
+//    root.right.right = new TreeNode(7);
 
     //           -10
     //          /    \

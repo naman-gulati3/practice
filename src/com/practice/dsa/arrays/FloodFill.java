@@ -17,7 +17,7 @@ public class FloodFill {
     int[][] result = image.clone();
     int initialColor = image[sr][sc];
 
-    dfs(image, result, sr, sc, color, initialColor);
+//    dfs(image, result, sr, sc, color, initialColor);
     bfs(image, sr, sc, color, result, initialColor);
     return result;
   }

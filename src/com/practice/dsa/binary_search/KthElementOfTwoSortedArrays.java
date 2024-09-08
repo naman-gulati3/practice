@@ -6,7 +6,8 @@ public class KthElementOfTwoSortedArrays {
     // 1, 2, 3, 4, 6, 7, 8, 9, 10
     System.out.println(kthElement(new int[]{2, 3, 6, 7, 9}, new int[]{1, 4, 8, 10}, 5, 4, 5));
     System.out.println(
-        kthElementOptimal(new int[]{2, 3, 6, 7, 9}, new int[]{1, 4, 8, 10}, 5, 4, 5));
+        kthElementOptimal(new int[]{76, 94, 100}, new int[]{5, 5, 9, 11, 31, 36, 68, 71, 75, 100},
+            3, 10, 12));
   }
 
   public static long kthElementOptimal(int[] arr1, int[] arr2, int n, int m, int k) {
@@ -26,8 +27,8 @@ public class KthElementOfTwoSortedArrays {
     //           r2
     int left = k;
 
-    int low = 0;
-    int high = n;
+    int low = Math.max(0, k - m);
+    int high = Math.min(k, n);
     while (low <= high) {
       int mid1 = (low + high) / 2;
       int mid2 = left - mid1;

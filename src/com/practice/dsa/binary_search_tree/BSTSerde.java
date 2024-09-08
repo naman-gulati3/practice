@@ -32,7 +32,7 @@ public class BSTSerde {
 
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
-      if (data.isEmpty()) {
+      if (data.isEmpty() || data.charAt(0) == '#') {
         return null;
       }
       Queue<TreeNode> queue = new LinkedList<>();
@@ -47,7 +47,8 @@ public class BSTSerde {
           queue.offer(left);
         }
 
-        if (!split[i++].equals("#")) {
+        i++;
+        if (!split[i].equals("#")) {
           TreeNode right = new TreeNode(Integer.parseInt(split[i]));
           parent.right = right;
           queue.offer(right);

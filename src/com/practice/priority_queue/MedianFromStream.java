@@ -16,39 +16,25 @@ public class MedianFromStream {
     }
 
     public void addNum(int num) {
-      this.maxQueue.offer(num);
-      if (!maxQueue.isEmpty() && !minQueue.isEmpty() && maxQueue.peek() > minQueue.peek()) {
-        minQueue.offer(maxQueue.poll());
+      if (maxQueue.isEmpty() || maxQueue.peek() >= num) {
+        maxQueue.offer(num);
+      } else {
+        minQueue.offer(num);
       }
 
-      if (maxQueue.size() - 1 > minQueue.size()) {
+      if (maxQueue.size() > minQueue.size() + 1) {
         minQueue.offer(maxQueue.poll());
-      }
-
-      if (minQueue.size() - 1 > maxQueue.size()) {
+      } else if (maxQueue.size() < minQueue.size()) {
         maxQueue.offer(minQueue.poll());
       }
     }
 
     public double findMedian() {
-      if (maxQueue.isEmpty()) {
-        return -1;
+      if (!maxQueue.isEmpty() && !minQueue.isEmpty() && maxQueue.size() == minQueue.size()) {
+        return (double) (maxQueue.peek() + minQueue.peek()) / 2.0;
       }
 
-      int count = this.maxQueue.size() + this.minQueue.size();
-      if (count % 2 == 0) {
-        if (this.minQueue.isEmpty()) {
-          return maxQueue.peek();
-        }
-
-        return (double) (this.maxQueue.peek() + this.minQueue.peek()) / 2;
-      } else {
-        if (this.maxQueue.size() > this.minQueue.size()) {
-          return (double) this.maxQueue.peek();
-        } else {
-          return this.minQueue.peek();
-        }
-      }
+      return maxQueue.isEmpty() ? -1 : maxQueue.peek();
     }
   }
 

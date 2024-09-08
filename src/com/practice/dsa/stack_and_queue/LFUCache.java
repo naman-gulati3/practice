@@ -109,7 +109,7 @@ class LFUCache {
     Node node = map.get(key);
     if (node != null) {
       node.value = value;
-      get(key); // this will update the node's position
+      updateFrequency(node); // this will update the node's position
     } else {
       if (map.size() >= capacity) {
         // remove LRU node if there is min frequency collision

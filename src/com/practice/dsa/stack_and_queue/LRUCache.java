@@ -5,14 +5,14 @@ import java.util.Map;
 
 class LRUCache {
 
-  private Map<Integer, Node> map;
-  private Node head;
-  private Node tail;
-  private int capacity;
+  private final Map<Integer, Node> map;
+  private final Node head;
+  private final Node tail;
+  private final int capacity;
 
-  class Node {
+  static class Node {
 
-    private int key;
+    private final int key;
     private int value;
     private Node next;
     private Node previous;
