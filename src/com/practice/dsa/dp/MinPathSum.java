@@ -66,6 +66,9 @@ public class MinPathSum {
 
 
   public static void main(String[] args) {
+    // 1 3 1
+    // 1 5 1
+    // 4 2 1
     int[][] grid = new int[][]{{1, 3, 1}, {1, 5, 1}, {4, 2, 1}};
     System.out.println(minPathSum(grid));
     System.out.println(minPathSumBottomUp(grid));

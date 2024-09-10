@@ -35,6 +35,8 @@ public class CoinChangeII {
   }
 
   public static void main(String[] args) {
-    System.out.println(change(10, new int[]{5, 4}));
+    // 5 + 5 + 5 + 5
+    // 4 + 4 + 4 + 4 + 4
+    System.out.println(change(20, new int[]{5, 4}));
   }
 }

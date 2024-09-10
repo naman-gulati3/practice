@@ -23,6 +23,7 @@ public class CherryPickup {
   // (r1, c1) and (r2, c2) are two guy going from 0, 0 to (n - 1, m - 1)
   private static int solve(int[][] grid, int r1, int c1, int r2, int c2, int[][][][] dp) {
     if (r1 >= grid.length || c1 >= grid[0].length || r2 >= grid.length || c2 >= grid[0].length
+        // no possible path to the end if there is a thorn in the cell
         || grid[r1][c1] == -1 || grid[r2][c2] == -1) {
       return Integer.MIN_VALUE;
     }

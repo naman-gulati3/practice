@@ -1,14 +1,12 @@
 package com.practice.lld.pub_sub;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.Queue;
 
 public class Topic<K, V> {
+
   private final String name;
-  private List<Message<K, V>> messages;
+  private final List<Message<K, V>> messages;
 
   public Topic(String name) {
     this.name = name;

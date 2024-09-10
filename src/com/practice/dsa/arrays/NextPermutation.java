@@ -10,7 +10,7 @@ public class NextPermutation {
   // eg 3:    1, 3, 2 -> 2, 1, 3
 
   public static void main(String[] args) {
-    int[] nums = new int[]{1, 2, 3};
+    int[] nums = new int[]{1, 0, 1};
     nextPermutation(nums);
     System.out.println(Arrays.toString(nums));
   }

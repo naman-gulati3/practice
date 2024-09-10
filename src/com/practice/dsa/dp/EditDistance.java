@@ -13,7 +13,7 @@ public class EditDistance {
       Arrays.fill(rows, -1);
     }
 
-    return solve(word1, n, word2, m, dp);
+    return solve(word1, n - 1, word2, m - 1, dp);
   }
 
   public static int mindDistanceTabulation(String word1, String word2) {
