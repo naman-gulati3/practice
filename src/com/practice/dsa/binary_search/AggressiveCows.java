@@ -17,6 +17,8 @@ public class AggressiveCows {
     Arrays.sort(stalls);
 
     int low = 1;
+    // given the constraint 2 <= k <= stalls.length
+    // max possible distance b/w cows can be the distance between first and last stall
     int high = stalls[n - 1] - stalls[0];
     while (low <= high) {
       int mid = (low + high) / 2;

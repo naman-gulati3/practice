@@ -24,8 +24,8 @@ public class Game {
       if (board.isFull()) {
         System.out.println("Game Draw");
         return;
-
       }
+
       System.out.printf("Player %s 's turn%n", currentPlayer.name());
       int row = getValidInput("Enter row (0 - 2):");
       int col = getValidInput("Enter column (0 - 2):");
