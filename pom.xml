@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>groupId</groupId>
+  <artifactId>practice</artifactId>
+  <version>1.0.0</version>
+
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <build>
+    <defaultGoal>clean compile</defaultGoal>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>com.spotify.fmt</groupId>
+          <artifactId>fmt-maven-plugin</artifactId>
+          <version>2.23</version>
+          <configuration>
+            <filesNamePattern>.*\.java</filesNamePattern>
+            <skipSortingImports>false</skipSortingImports>
+            <style>google</style>
+            <verbose>true</verbose>
+            <forkMode>never</forkMode>
+          </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <goal>format</goal>
+                <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>
