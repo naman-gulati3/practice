@@ -25,7 +25,7 @@ public class RabinKarpPatternMatching {
     return -1;
   }
 
-  public static int repeatedStringMatch2(String pattern, String text) {
+  public static boolean repeatedStringMatch2(String pattern, String text) {
     double patternHash = calculateHash(pattern);
     double strHash = calculateHash(text.substring(0, pattern.length()));
     int count = 0;
@@ -33,7 +33,7 @@ public class RabinKarpPatternMatching {
       String textWindow = text.substring(i, i + pattern.length());
       if (strHash == patternHash) {
         if (checkWindow(textWindow, pattern)) {
-          return count;
+          return true;
         }
       }
 
@@ -43,7 +43,7 @@ public class RabinKarpPatternMatching {
                 strHash, text.charAt(i), text.charAt(i + pattern.length()), pattern.length());
       }
     }
-    return count;
+    return false;
   }
 
   private static boolean checkWindow(String window, String a) {

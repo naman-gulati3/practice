@@ -43,6 +43,6 @@ public class WordBreak {
 
   public static void main(String[] args) {
     //    System.out.println(wordBreak("catsandog", List.of("cats", "dog", "sand", "and", "cat")));
-    System.out.println(wordBreak("applepenapple", List.of("apple", "pen")));
+    System.out.println(wordBreak("leetscode", List.of("leet", "code", "leetcode")));
   }
 }

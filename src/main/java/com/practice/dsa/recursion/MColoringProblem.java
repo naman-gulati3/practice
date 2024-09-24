@@ -35,12 +35,11 @@ public class MColoringProblem {
     for (int color = 1; color <= m; color++) {
       if (isSafe(node, graph, colors, V, color)) {
         colors[node] = color;
-      }
 
-      if (solve(node + 1, graph, colors, V, m)) {
-        return true;
+        if (solve(node + 1, graph, colors, V, m)) {
+          return true;
+        }
       }
-
       colors[node] = 0;
     }
 

@@ -5,8 +5,6 @@ import java.util.List;
 
 public class MinimumTimeDifference {
 
-  record Pair(int hour, int minute) {}
-
   public static int findMinDifference(List<String> timePoints) {
     int[] mins = new int[timePoints.size()];
     int minimum = Integer.MAX_VALUE;
@@ -22,7 +20,7 @@ public class MinimumTimeDifference {
     for (int i = 0; i < mins.length - 1; i++) {
       minimum = Math.min(minimum, mins[i + 1] - mins[i]);
     }
-    return Math.min(minimum, 1440 - mins[mins.length - 1] + mins[0]);
+    return Math.min(minimum, 1440 - (mins[mins.length - 1] + mins[0]));
   }
 
   public static void main(String[] args) {

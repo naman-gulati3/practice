@@ -8,9 +8,7 @@ public class RodCuttingMinCost {
     Arrays.sort(cuts);
     int[] updated = new int[cuts.length + 2];
     updated[0] = 0;
-    for (int i = 1; i <= cuts.length; i++) {
-      updated[i] = cuts[i - 1];
-    }
+    System.arraycopy(cuts, 0, updated, 1, cuts.length);
 
     updated[updated.length - 1] = n;
 
@@ -47,6 +45,6 @@ public class RodCuttingMinCost {
   }
 
   public static void main(String[] args) {
-    System.out.println(minCost(7, new int[] {3, 1, 4, 5}));
+    System.out.println(minCost(7, new int[]{3, 1, 4, 5}));
   }
 }

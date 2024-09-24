@@ -1,8 +1,6 @@
 package com.practice.dsa.dp;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public class TargetSum {
 
@@ -10,50 +8,57 @@ public class TargetSum {
     int n = nums.length;
     int total = Arrays.stream(nums).sum();
 
-    if (target > total || target < -total) {
+    if (total - target < 0) {
       return 0;
     }
 
-    Map<Integer, Map<Integer, Integer>> dp = new HashMap<>();
-    return topDown(nums, n - 1, target, dp);
+    if ((total - target) % 2 == 1) {
+      return 0;
+    }
+
+    int num = (total + target) / 2;
+    int[][] dp = new int[n][total + 1];
+
+    for (int[] row : dp) {
+      Arrays.fill(row, -1);
+    }
+
+    return topDown(nums, n - 1, num, dp);
   }
 
-  private static int topDown(
-      int[] nums, int n, int target, Map<Integer, Map<Integer, Integer>> dp) {
+  private static int topDown(int[] nums, int n, int target, int[][] dp) {
     if (n == 0) {
-      int ways = 0;
-      if (target - nums[n] == 0) {
-        ways++;
+      // you can add 0 or subtract 0 to get to target
+      if (target == 0 && nums[0] == 0) {
+        return 2;
       }
 
-      if (target + nums[n] == 0) {
-        ways++;
+      if (target == 0 || target == nums[0]) {
+        return 1;
       }
-      return ways;
+      return 0;
     }
 
-    if (dp.containsKey(n)) {
-      if (dp.get(n).containsKey(target)) {
-        return dp.get(n).get(target);
-      }
+    if (dp[n][target] != -1) {
+      return dp[n][target];
     }
-    int sum = topDown(nums, n - 1, target + nums[n], dp);
 
-    int diff = topDown(nums, n - 1, target - nums[n], dp);
+    int notTake = topDown(nums, n - 1, target, dp);
+    int take = 0;
+    if (nums[n] <= target) {
+      take = topDown(nums, n - 1, target - nums[n], dp);
+    }
 
-    int totalWays = sum + diff;
+    dp[n][target] = notTake + take;
 
-    Map<Integer, Integer> cache = new HashMap<>();
-    cache.put(target, totalWays);
-    dp.put(n, cache);
-    return dp.get(n).get(target);
+    return dp[n][target];
   }
 
   public static void main(String[] args) {
-    System.out.println(findTargetSumWays(new int[] {1, 2, 1}, 0));
+    System.out.println(findTargetSumWays(new int[]{1, 2, 1}, 0));
     // -1 - 1 + 2
     // +1 + 1 - 2
-    System.out.println(findTargetSumWays(new int[] {7, 9, 3, 8, 0, 2, 4, 8, 3, 9}, 0));
+    System.out.println(findTargetSumWays(new int[]{7, 9, 3, 8, 0, 2, 4, 8, 3, 9}, 0));
   }
 }
 // 1 + 1 - 1 - 1 + 1

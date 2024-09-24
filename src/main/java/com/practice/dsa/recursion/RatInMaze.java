@@ -5,16 +5,17 @@ import java.util.List;
 
 public class RatInMaze {
 
+  private static final int[] idirections = new int[]{1, 0, 0, -1};
+  private static final int[] jdirections = new int[]{0, -1, 1, 0};
+
   public static void main(String[] args) {
     System.out.println(
-        findPath(new int[][] {{1, 0, 0, 0}, {1, 1, 0, 1}, {1, 1, 0, 0}, {0, 1, 1, 1}}, 4));
+        findPath(new int[][]{{1, 0, 0, 0}, {1, 1, 0, 1}, {1, 1, 0, 0}, {0, 1, 1, 1}}, 4));
     //    System.out.println(findPath(new int[][]{{1, 1}, {1, 1}}, 2));
   }
 
   public static List<String> findPath(int[][] m, int n) {
     List<String> result = new ArrayList<>();
-    int[] idirections = new int[] {1, 0, 0, -1};
-    int[] jdirections = new int[] {0, -1, 1, 0};
 
     if (m[0][0] != 1) {
       return result;
@@ -23,7 +24,7 @@ public class RatInMaze {
     boolean[][] visited = new boolean[n][n];
     visited[0][0] = true;
 
-    solve(0, 0, m, n, result, "", visited, idirections, jdirections);
+    solve(0, 0, m, n, result, "", visited);
     //    solve2(0, 0, m, n, result, "", new boolean[n][n]);
     return result;
   }
@@ -64,16 +65,8 @@ public class RatInMaze {
     }
   }
 
-  private static void solve(
-      int i,
-      int j,
-      int[][] m,
-      int n,
-      List<String> result,
-      String moves,
-      boolean[][] visited,
-      int[] idirections,
-      int[] jdirections) {
+  private static void solve(int i, int j, int[][] m, int n, List<String> result, String moves,
+      boolean[][] visited) {
     if (i == n - 1 && j == n - 1) {
       result.add(moves);
       return;
@@ -84,15 +77,11 @@ public class RatInMaze {
       int nexti = i + idirections[idx];
       int nextj = j + jdirections[idx];
 
-      if (nexti >= 0
-          && nextj >= 0
-          && nexti < n
-          && nextj < n
-          && !visited[nexti][nextj]
+      if (nexti >= 0 && nextj >= 0 && nexti < n && nextj < n && !visited[nexti][nextj]
           && m[nexti][nextj] == 1) {
         visited[i][j] = true;
         solve(
-            nexti, nextj, m, n, result, moves + dir.charAt(idx), visited, idirections, jdirections);
+            nexti, nextj, m, n, result, moves + dir.charAt(idx), visited);
         visited[i][j] = false;
       }
     }

@@ -1,8 +1,6 @@
 package com.practice.dsa.linked_list;
 
 import com.practice.dsa.linked_list.MergeSortedLinkedList.ListNode;
-import java.util.Comparator;
-import java.util.List;
 
 public class ReverseNodesInKGroups {
 
@@ -17,20 +15,6 @@ public class ReverseNodesInKGroups {
       System.out.println(reversed.val);
       reversed = reversed.next;
     }
-  }
-
-  private static int minutes(List<String> timePoints) {
-    int min = Integer.MAX_VALUE;
-    List<Integer> minutes =
-        timePoints.stream()
-            .map(t -> Integer.parseInt(t.split(":")[1]))
-            .sorted(Comparator.reverseOrder())
-            .toList();
-    for (int i = 0; i < minutes.size() - 1; i++) {
-      min = Math.min(min, minutes.get(i) - minutes.get(i + 1));
-    }
-
-    return min;
   }
 
   public static ListNode reverseKGroup(ListNode head, int k) {
@@ -63,6 +47,7 @@ public class ReverseNodesInKGroups {
         prev.next = next; // in above example prev will point 2
         next = curr.next; // next will move forward to 3
         /**
+         * Original = 1 -> 2 -> 3 -> 4 -> 5 -> null
          * this makes list look like: p -> 2 -> 1 -> 3 -> 4 -> 5 - null after first iteration of for
          * loop
          */

@@ -11,7 +11,7 @@ public class AllNodeAtDistanceK {
 
   public static List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
     Map<TreeNode, TreeNode> parents = new HashMap<>();
-    markParent(root, parents);
+    mapParents(parents, root, null);
     Map<TreeNode, Boolean> visited = new HashMap<>();
     Queue<TreeNode> queue = new LinkedList<>();
     queue.offer(target);
@@ -52,22 +52,17 @@ public class AllNodeAtDistanceK {
     return result;
   }
 
-  private static void markParent(TreeNode root, Map<TreeNode, TreeNode> parents) {
-    Queue<TreeNode> queue = new LinkedList<>();
-    queue.offer(root);
-
-    while (!queue.isEmpty()) {
-      TreeNode current = queue.poll();
-      if (current.left != null) {
-        parents.put(current.left, current);
-        queue.offer(current.left);
-      }
-
-      if (current.right != null) {
-        parents.put(current.right, current);
-        queue.offer(current.right);
-      }
+  private static void mapParents(Map<TreeNode, TreeNode> parents, TreeNode child, TreeNode parent) {
+    if (child == null) {
+      return;
     }
+
+    if (parent != null) {
+      parents.put(child, parent);
+    }
+
+    mapParents(parents, child.left, child);
+    mapParents(parents, child.right, child);
   }
 
   public static void main(String[] args) {

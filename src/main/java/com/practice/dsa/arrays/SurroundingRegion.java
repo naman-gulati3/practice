@@ -26,10 +26,6 @@ public class SurroundingRegion {
       }
     }
 
-    for (int row = 0; row < board.length; row++) {
-      for (int col = 0; col < board[0].length; col++) {}
-    }
-
     System.out.println(Arrays.deepToString(board));
   }
 
@@ -52,8 +48,8 @@ public class SurroundingRegion {
 
   public static void main(String[] args) {
     char[][] board =
-        new char[][] {
-          {'X', 'X', 'X', 'X'}, {'X', 'O', 'O', 'X'}, {'X', 'O', 'O', 'X'}, {'X', 'X', 'X', 'O'}
+        new char[][]{
+            {'X', 'X', 'X', 'X'}, {'X', 'O', 'O', 'X'}, {'X', 'O', 'O', 'X'}, {'X', 'X', 'X', 'O'}
         };
     solve(board);
     System.out.println(Arrays.deepToString(board));

@@ -8,7 +8,6 @@ public class KthPermutation {
 
   public static void main(String[] args) {
     System.out.println(getPermutation(3, 3));
-    System.out.println(getPermutationBruteForce(3, 3));
   }
 
   public static String getPermutation(int n, int k) {

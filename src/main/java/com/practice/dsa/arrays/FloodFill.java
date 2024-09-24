@@ -9,14 +9,16 @@ public class FloodFill {
   private static final int[] DIRS = {1, 0, -1, 0};
   private static final int[] COL_DIRS = {0, -1, 0, 1};
 
-  record Pair(int row, int col) {}
+  record Pair(int row, int col) {
+
+  }
 
   public static int[][] floodFill(int[][] image, int sr, int sc, int color) {
     int[][] result = image.clone();
     int initialColor = image[sr][sc];
 
-    //    dfs(image, result, sr, sc, color, initialColor);
-    bfs(image, sr, sc, color, result, initialColor);
+    dfs(image, result, sr, sc, color, initialColor);
+//    bfs(image, sr, sc, color, result, initialColor);
     return result;
   }
 
@@ -69,6 +71,6 @@ public class FloodFill {
     // 1 1 0
     // 1 0 1
     System.out.println(
-        Arrays.deepToString(floodFill(new int[][] {{1, 1, 1}, {1, 1, 0}, {1, 0, 1}}, 1, 1, 2)));
+        Arrays.deepToString(floodFill(new int[][]{{1, 1, 1}, {1, 1, 0}, {1, 0, 1}}, 1, 1, 2)));
   }
 }

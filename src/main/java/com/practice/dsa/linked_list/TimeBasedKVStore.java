@@ -17,7 +17,8 @@ public class TimeBasedKVStore {
 
       ListNode next;
 
-      public ListNode() {}
+      public ListNode() {
+      }
 
       public ListNode(String val, int ts) {
         this.val = val;
@@ -46,6 +47,7 @@ public class TimeBasedKVStore {
             ListNode newNode = new ListNode(value, timestamp);
             if (prev != null) {
               prev.next = newNode;
+              newNode.next = node;
             } else {
               // if we are at the head
               map.put(key, newNode);
@@ -84,7 +86,9 @@ public class TimeBasedKVStore {
 
   static class TimeMap2 {
 
-    record Pair(int ts, String val) {}
+    record Pair(int ts, String val) {
+
+    }
 
     private final Map<String, List<Pair>> map;
 

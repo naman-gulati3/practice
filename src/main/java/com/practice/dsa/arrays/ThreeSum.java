@@ -24,13 +24,17 @@ public class ThreeSum {
           result.add(List.of(nums[i], nums[j], nums[k]));
           j++;
           k--;
+
+          while (j < k && nums[j] == nums[j - 1]) {
+            j++;
+          }
+          while (j < k && nums[k] == nums[k + 1]) {
+            k--;
+          }
+
         } else if (sum > 0) {
           k--;
         } else {
-          j++;
-        }
-
-        while (nums[j] == nums[j - 1] && j < k) {
           j++;
         }
       }
@@ -39,6 +43,6 @@ public class ThreeSum {
   }
 
   public static void main(String[] args) {
-    System.out.println(threeSum(new int[] {-2, 0, 0, 2, 2}));
+    System.out.println(threeSum(new int[]{-2, 0, 0, 2, 2}));
   }
 }

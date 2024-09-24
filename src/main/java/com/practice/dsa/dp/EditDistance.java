@@ -13,7 +13,7 @@ public class EditDistance {
       Arrays.fill(rows, -1);
     }
 
-    return solve(word1, n - 1, word2, m - 1, dp);
+    return solve(word1, n, word2, m, dp);
   }
 
   public static int mindDistanceTabulation(String word1, String word2) {
@@ -83,8 +83,8 @@ public class EditDistance {
     dp[i][j] =
         1
             + Math.min(
-                solve(word1, i - 1, word2, j, dp),
-                Math.min(solve(word1, i, word2, j - 1, dp), solve(word1, i - 1, word2, j - 1, dp)));
+            solve(word1, i - 1, word2, j, dp),
+            Math.min(solve(word1, i, word2, j - 1, dp), solve(word1, i - 1, word2, j - 1, dp)));
     return dp[i][j];
   }
 
