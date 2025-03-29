@@ -2,13 +2,10 @@ package com.practice.machine_coding.flip_cache.policies;
 
 public class DataBasedEvictionPolicy<K> extends EvictionPolicy<K> {
 
-  public DataBasedEvictionPolicy() {
-  }
+  public DataBasedEvictionPolicy() {}
 
   @Override
-  public void keyAccessed(K key) {
-
-  }
+  public void keyAccessed(K key) {}
 
   @Override
   public K evict() {

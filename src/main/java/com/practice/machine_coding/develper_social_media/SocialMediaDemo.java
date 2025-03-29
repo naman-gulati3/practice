@@ -1,6 +1,5 @@
 package com.practice.machine_coding.develper_social_media;
 
-
 import com.practice.machine_coding.develper_social_media.dto.Answer;
 import com.practice.machine_coding.develper_social_media.dto.Question;
 import com.practice.machine_coding.develper_social_media.dto.Topic;
@@ -24,8 +23,8 @@ public class SocialMediaDemo {
     UserRepository userRepository = new UserRepository();
 
     UserService userService = new UserServiceImpl(userRepository);
-    SocialMediaService socialMediaService = new SocialMediaServiceImpl(userRepository,
-        questionAnswerRepository);
+    SocialMediaService socialMediaService =
+        new SocialMediaServiceImpl(userRepository, questionAnswerRepository);
 
     User user1 = new User("Naman", "Software Engineer");
     User user2 = new User("xyz", "Plumber");
@@ -41,13 +40,12 @@ public class SocialMediaDemo {
 
     userService.login(user1);
 
-    Question question = new Question(user1, "What are java collections?", Instant.now(),
-        List.of(javaTopic));
+    Question question =
+        new Question(user1, "What are java collections?", Instant.now(), List.of(javaTopic));
     UUID questionId = socialMediaService.postQuestion(user1, question);
 
     Answer answer = new Answer(question, user2, Instant.now());
-    UUID answerId = socialMediaService.postAnswer(user2, questionId,
-        answer);
+    UUID answerId = socialMediaService.postAnswer(user2, questionId, answer);
 
     System.out.println(socialMediaService.getFeed(null, Collections.emptyList()));
 

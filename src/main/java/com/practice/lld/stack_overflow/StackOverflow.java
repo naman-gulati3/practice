@@ -1,6 +1,5 @@
 package com.practice.lld.stack_overflow;
 
-
 public interface StackOverflow {
 
   int addUser(User user);

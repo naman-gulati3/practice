@@ -7,9 +7,7 @@ import java.util.PriorityQueue;
 
 public class IPO {
 
-  record Pair(int profit, int capital) {
-
-  }
+  record Pair(int profit, int capital) {}
 
   public static int findMaximizedCapital(int k, int w, int[] profits, int[] capital) {
     PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
@@ -39,6 +37,6 @@ public class IPO {
   }
 
   public static void main(String[] args) {
-    System.out.println(findMaximizedCapital(2, 0, new int[]{1, 2, 3}, new int[]{0, 1, 1}));
+    System.out.println(findMaximizedCapital(2, 0, new int[] {1, 2, 3}, new int[] {0, 1, 1}));
   }
 }

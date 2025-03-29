@@ -20,6 +20,7 @@ public class MinArrowsToBurstBaloons {
     }
     return arrows;
   }
+
   // 1------------6
   //   2-------------------8
   //                  7----------------12
@@ -35,6 +36,6 @@ public class MinArrowsToBurstBaloons {
   // 10 < 12
   // done
   public static void main(String[] args) {
-    System.out.println(findMinArrowShots(new int[][]{{10, 16}, {2, 8}, {1, 6}, {7, 12}}));
+    System.out.println(findMinArrowShots(new int[][] {{10, 16}, {2, 8}, {1, 6}, {7, 12}}));
   }
 }

@@ -62,8 +62,10 @@ public class WordDictionary {
     char ch = word.charAt(i);
     if (ch == '.') {
       // if char is '.' get all nodes of current and search in all branches
-      // for eg. for string ".ay" if first char is . search across all branches of tri following "ay"
-      // for eg. for string "b.." search in all branches of b of length 3 where endOfWord is also true
+      // for eg. for string ".ay" if first char is . search across all branches of tri following
+      // "ay"
+      // for eg. for string "b.." search in all branches of b of length 3 where endOfWord is also
+      // true
       for (TreeNode child : current.nodes) {
         if (child != null && searchInNode(word, i + 1, child)) {
           return true;

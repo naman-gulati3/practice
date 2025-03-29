@@ -8,7 +8,6 @@ public class OngoingGameStore implements InMemoryStore<Long, List<Game>> {
 
   private final List<Game> activeGames;
 
-
   public OngoingGameStore() {
     this.activeGames = new ArrayList<>();
   }

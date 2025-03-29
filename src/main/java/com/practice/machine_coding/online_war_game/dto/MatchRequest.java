@@ -14,8 +14,8 @@ public class MatchRequest {
 
   private final GameRank gameRank;
 
-  public MatchRequest(List<Player> players, GameLocation gameLocation, GameModeDTO gameMode,
-      GameRank gameRank) {
+  public MatchRequest(
+      List<Player> players, GameLocation gameLocation, GameModeDTO gameMode, GameRank gameRank) {
     this.players = players;
     this.gameLocation = gameLocation;
     this.gameMode = gameMode;

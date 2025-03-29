@@ -41,8 +41,11 @@ public class PandemicTrackerServiceImpl implements PandemicTrackerService {
 
   @Override
   public void setPatientHealthResult(PatientHealthResult patientHealthResult) {
-    User user = new User(patientHealthResult.getName(), patientHealthResult.getPhoneNumber(),
-        patientHealthResult.getPinCode());
+    User user =
+        new User(
+            patientHealthResult.getName(),
+            patientHealthResult.getPhoneNumber(),
+            patientHealthResult.getPinCode());
 
     try {
       registerUser(user);
@@ -52,7 +55,8 @@ public class PandemicTrackerServiceImpl implements PandemicTrackerService {
           patientHealthResult.getPhoneNumber());
     }
 
-    System.out.printf("Admin: %s, updated report for patient: %s\n",
+    System.out.printf(
+        "Admin: %s, updated report for patient: %s\n",
         patientHealthResult.getAdmin().name(), patientHealthResult.getName());
     zoneRepository.addUserToZone(user, patientHealthResult.isRecovered());
   }
@@ -87,11 +91,10 @@ public class PandemicTrackerServiceImpl implements PandemicTrackerService {
       zone = Zone.RED;
     }
 
-    System.out.printf("No. of positive cases: %s, zone status: %s\n", numInfectedPatients,
-        zone.name());
+    System.out.printf(
+        "No. of positive cases: %s, zone status: %s\n", numInfectedPatients, zone.name());
     return zone;
   }
-
 
   private int getNumberOfSymptoms(User user) {
     int num = 0;

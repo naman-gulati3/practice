@@ -45,6 +45,6 @@ public class RodCuttingMinCost {
   }
 
   public static void main(String[] args) {
-    System.out.println(minCost(7, new int[]{3, 1, 4, 5}));
+    System.out.println(minCost(7, new int[] {3, 1, 4, 5}));
   }
 }

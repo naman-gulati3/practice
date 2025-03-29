@@ -27,6 +27,6 @@ public class MaximumErasureValue {
   }
 
   public static void main(String[] args) {
-    System.out.println(maximumUniqueSubarray(new int[]{4, 2, 4, 5, 6}));
+    System.out.println(maximumUniqueSubarray(new int[] {4, 2, 4, 5, 6}));
   }
 }

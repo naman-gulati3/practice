@@ -14,8 +14,6 @@ public interface GameManager {
 
   Optional<Game> startGame();
 
-  /**
-   * form teams
-   */
+  /** form teams */
   Team teamUp(GameModeDTO mode, List<Player> players);
 }

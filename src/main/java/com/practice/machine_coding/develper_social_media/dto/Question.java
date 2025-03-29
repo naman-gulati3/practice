@@ -57,8 +57,7 @@ public class Question implements Votable {
     return answers;
   }
 
-  public void addAnswer(
-      Answer answer) {
+  public void addAnswer(Answer answer) {
     this.answers.add(answer);
   }
 
@@ -76,12 +75,18 @@ public class Question implements Votable {
 
   @Override
   public String toString() {
-    return "Question{" +
-        "topics=" + topics +
-        "upvotes=" + upvotes.get() +
-        ", text='" + text + '\'' +
-        ", publishedBy=" + publishedBy +
-        ", publishedAt=" + publishedAt +
-        '}';
+    return "Question{"
+        + "topics="
+        + topics
+        + "upvotes="
+        + upvotes.get()
+        + ", text='"
+        + text
+        + '\''
+        + ", publishedBy="
+        + publishedBy
+        + ", publishedAt="
+        + publishedAt
+        + '}';
   }
 }

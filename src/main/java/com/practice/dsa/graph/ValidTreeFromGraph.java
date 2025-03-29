@@ -7,9 +7,7 @@ import java.util.Queue;
 
 public class ValidTreeFromGraph {
 
-  record Pair(int node, int parent) {
-
-  }
+  record Pair(int node, int parent) {}
 
   public boolean validTree(int V, int[][] edges) {
     if (edges.length != V - 1) {

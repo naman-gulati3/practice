@@ -10,8 +10,7 @@ public class MetricCollector {
 
   private static final AtomicLong CACHE_MISS_COUNT = new AtomicLong(0);
 
-  private MetricCollector() {
-  }
+  private MetricCollector() {}
 
   public static synchronized MetricCollector getInstance() {
     if (instance == null) {
@@ -20,9 +19,9 @@ public class MetricCollector {
     return instance;
   }
 
-//  private static final AtomicLong CACHE_HIT_COUNT = new AtomicLong(0);
-//
-//  private static final AtomicLong CACHE_MISS_COUNT = new AtomicLong(0);
+  //  private static final AtomicLong CACHE_HIT_COUNT = new AtomicLong(0);
+  //
+  //  private static final AtomicLong CACHE_MISS_COUNT = new AtomicLong(0);
 
   public static long getCacheHitCount() {
     return CACHE_HIT_COUNT.get();

@@ -7,7 +7,7 @@ import java.util.Set;
 public class ExtraCharacterInString {
 
   public static void main(String[] args) {
-    System.out.println(minExtraChar("leetscode", new String[]{"leet", "code", "leetcode"}));
+    System.out.println(minExtraChar("leetscode", new String[] {"leet", "code", "leetcode"}));
   }
 
   public static int minExtraChar(String s, String[] dictionary) {

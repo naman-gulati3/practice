@@ -5,9 +5,7 @@ import java.util.Arrays;
 public class LargestNumber {
 
   public static String largestNumber(int[] nums) {
-    String[] strNums = Arrays.stream(nums)
-        .mapToObj(String::valueOf)
-        .toArray(String[]::new);
+    String[] strNums = Arrays.stream(nums).mapToObj(String::valueOf).toArray(String[]::new);
 
     // Sort the array with custom comparator
     Arrays.sort(strNums, (a, b) -> (b + a).compareTo(a + b));
@@ -26,9 +24,8 @@ public class LargestNumber {
     return sb.toString();
   }
 
-
   public static void main(String[] args) {
-    System.out.println(largestNumber(new int[]{0, 0})); // 95345330
+    System.out.println(largestNumber(new int[] {9, 5, 399, 34, 3, 30})); // 95345330
     // 9,5,399,34,3,30
   }
 }

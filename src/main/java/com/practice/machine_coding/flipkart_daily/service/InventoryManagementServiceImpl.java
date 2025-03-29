@@ -21,8 +21,8 @@ public class InventoryManagementServiceImpl implements InventoryManagementServic
   }
 
   @Override
-  public List<Product> searchProduct(@Nullable String brand,
-      @Nullable ProductCategory productCategory, @Nullable Float price) {
+  public List<Product> searchProduct(
+      @Nullable String brand, @Nullable ProductCategory productCategory, @Nullable Float price) {
     Stream<Product> productsStream = inventoryRepository.getProducts().stream();
 
     if (brand != null) {

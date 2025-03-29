@@ -10,19 +10,17 @@ public class ZoneRepository {
 
   private final Map<Integer, List<User>> patientsByPincode;
 
-
   public ZoneRepository() {
     this.patientsByPincode = new ConcurrentHashMap<>();
   }
 
   public void addUserToZone(User user, boolean isPatientRecovered) {
 
-    List<User> usersByPincode = this.patientsByPincode.getOrDefault(user.getPinCode(),
-        new ArrayList<>());
+    List<User> usersByPincode =
+        this.patientsByPincode.getOrDefault(user.getPinCode(), new ArrayList<>());
 
     if (isPatientRecovered) {
-      if (usersByPincode.stream()
-          .anyMatch(u -> u.getPhoneNumber().equals(user.getPhoneNumber()))) {
+      if (usersByPincode.stream().anyMatch(u -> u.getPhoneNumber().equals(user.getPhoneNumber()))) {
         usersByPincode.removeIf(u -> u.getPhoneNumber().equals(user.getPhoneNumber()));
       }
     } else {
@@ -32,8 +30,9 @@ public class ZoneRepository {
       }
     }
 
-    System.out.printf("Updated report for patient: %s and pincode: %s\n", user.getPhoneNumber(),
-        user.getPinCode());
+    System.out.printf(
+        "Updated report for patient: %s and pincode: %s\n",
+        user.getPhoneNumber(), user.getPinCode());
     this.patientsByPincode.put(user.getPinCode(), usersByPincode);
   }
 

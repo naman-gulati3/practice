@@ -24,6 +24,6 @@ public class NumberOfSubArrayWithSumK {
   }
 
   public static void main(String[] args) {
-    System.out.println(subarraySum(new int[]{1, 2, 3}, 3));
+    System.out.println(subarraySum(new int[] {1, 2, 3}, 3));
   }
 }

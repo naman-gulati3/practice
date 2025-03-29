@@ -40,6 +40,6 @@ public class ThreeSum {
   }
 
   public static void main(String[] args) {
-    System.out.println(threeSum(new int[]{-2, 0, 0, 2, 2}));
+    System.out.println(threeSum(new int[] {-2, 0, 0, 2, 2}));
   }
 }

@@ -5,6 +5,5 @@ import com.practice.lld.digital_wallet.dto.Wallet;
 
 public interface WalletService {
 
-    Wallet createWallet(User user);
-
+  Wallet createWallet(User user);
 }

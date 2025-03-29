@@ -8,8 +8,8 @@ public class PatientHealthResult {
   private final boolean isRecovered;
   private final String name;
 
-  public PatientHealthResult(Admin admin, String name, String phoneNumber, int pinCode,
-      boolean isRecovered) {
+  public PatientHealthResult(
+      Admin admin, String name, String phoneNumber, int pinCode, boolean isRecovered) {
     this.phoneNumber = phoneNumber;
     this.name = name;
     this.admin = admin;

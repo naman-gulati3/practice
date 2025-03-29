@@ -12,8 +12,8 @@ public class UserManagementServiceImpl implements UserManagementService {
 
   private final InventoryRepository inventoryRepository;
 
-  public UserManagementServiceImpl(CartRepository cartRepository,
-      InventoryRepository inventoryRepository) {
+  public UserManagementServiceImpl(
+      CartRepository cartRepository, InventoryRepository inventoryRepository) {
     this.cartRepository = cartRepository;
     this.inventoryRepository = inventoryRepository;
   }

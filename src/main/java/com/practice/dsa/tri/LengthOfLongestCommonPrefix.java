@@ -33,14 +33,12 @@ public class LengthOfLongestCommonPrefix {
 
     @Override
     public String toString() {
-      return "Tri{" +
-          "root=" + root +
-          '}';
+      return "Tri{" + "root=" + root + '}';
     }
   }
 
   public static void main(String[] args) {
-    System.out.println(longestCommonPrefix(new int[]{1, 10, 100}, new int[]{100}));
+    System.out.println(longestCommonPrefix(new int[] {1, 10, 100}, new int[] {100}));
   }
 
   public static int longestCommonPrefix(int[] arr1, int[] arr2) {

@@ -4,5 +4,5 @@ import com.practice.lld.payment_gateway.dto.PaymentRequest;
 import com.practice.lld.payment_gateway.dto.PaymentResult;
 
 public interface PaymentProcessor {
-    PaymentResult processPayment(PaymentRequest paymentRequest);
+  PaymentResult processPayment(PaymentRequest paymentRequest);
 }

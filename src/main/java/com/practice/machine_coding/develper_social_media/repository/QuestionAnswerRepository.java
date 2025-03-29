@@ -22,15 +22,13 @@ public class QuestionAnswerRepository {
 
   public UUID addQuestion(Question question) {
     for (Topic topic : question.getTopics()) {
-      List<Question> topicWiseQuestions =
-          questionsByTopic.getOrDefault(topic, new ArrayList<>());
+      List<Question> topicWiseQuestions = questionsByTopic.getOrDefault(topic, new ArrayList<>());
 
       topicWiseQuestions.add(question);
       questionsByTopic.put(topic, topicWiseQuestions);
     }
     return UUID.randomUUID();
   }
-
 
   public List<Question> getQuestionsByTopic(List<Topic> topics) {
     List<Question> questions = new ArrayList<>();
@@ -50,8 +48,7 @@ public class QuestionAnswerRepository {
   }
 
   public UUID postAnswer(UUID questionId, Answer answer) {
-    List<Answer> answers = this.answersByQuestion.getOrDefault(questionId,
-        new ArrayList<>());
+    List<Answer> answers = this.answersByQuestion.getOrDefault(questionId, new ArrayList<>());
 
     answers.add(answer);
 

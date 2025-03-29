@@ -16,6 +16,5 @@ public class PlayersInQueueStore {
     return playerInQueue;
   }
 
-  public void addPlayerInQueue(Player player) {
-  }
+  public void addPlayerInQueue(Player player) {}
 }

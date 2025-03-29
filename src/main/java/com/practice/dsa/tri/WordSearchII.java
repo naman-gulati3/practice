@@ -73,7 +73,6 @@ public class WordSearchII {
     board[i][j] = ch;
   }
 
-
   private TreeNode buildTri(String[] words) {
     Tri tri = new Tri();
     for (String s : words) {

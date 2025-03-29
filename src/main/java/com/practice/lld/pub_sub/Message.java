@@ -1,6 +1,5 @@
 package com.practice.lld.pub_sub;
 
-
 public class Message<K, V> {
   private final K key;
   private final V value;

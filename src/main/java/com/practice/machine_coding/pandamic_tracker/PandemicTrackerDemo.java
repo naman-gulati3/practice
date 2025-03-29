@@ -27,13 +27,14 @@ public class PandemicTrackerDemo {
     UserRepository userRepository = new UserRepository();
     ZoneRepository zoneRepository = new ZoneRepository();
 
-    PandemicTrackerService pandemicTrackerService = new PandemicTrackerServiceImpl(userRepository,
-        zoneRepository);
+    PandemicTrackerService pandemicTrackerService =
+        new PandemicTrackerServiceImpl(userRepository, zoneRepository);
 
     pandemicTrackerService.registerUser(user1);
     pandemicTrackerService.registerUser(user2);
-    pandemicTrackerService.setPatientHealthResult(new PatientHealthResult(admin, user3.getName(),
-        user3.getPhoneNumber(), user3.getPinCode(), false));
+    pandemicTrackerService.setPatientHealthResult(
+        new PatientHealthResult(
+            admin, user3.getName(), user3.getPhoneNumber(), user3.getPinCode(), false));
     pandemicTrackerService.registerUser(user4);
 
     System.out.println(pandemicTrackerService.calculateRiskFactor(user1.getPhoneNumber()));

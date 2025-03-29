@@ -17,8 +17,7 @@ public class TimeBasedKVStore {
 
       ListNode next;
 
-      public ListNode() {
-      }
+      public ListNode() {}
 
       public ListNode(String val, int ts) {
         this.val = val;
@@ -86,9 +85,7 @@ public class TimeBasedKVStore {
 
   static class TimeMap2 {
 
-    record Pair(int ts, String val) {
-
-    }
+    record Pair(int ts, String val) {}
 
     private final Map<String, List<Pair>> map;
 

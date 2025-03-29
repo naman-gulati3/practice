@@ -83,8 +83,8 @@ public class EditDistance {
     dp[i][j] =
         1
             + Math.min(
-            solve(word1, i - 1, word2, j, dp),
-            Math.min(solve(word1, i, word2, j - 1, dp), solve(word1, i - 1, word2, j - 1, dp)));
+                solve(word1, i - 1, word2, j, dp),
+                Math.min(solve(word1, i, word2, j - 1, dp), solve(word1, i - 1, word2, j - 1, dp)));
     return dp[i][j];
   }
 

@@ -16,12 +16,13 @@ public class GameManagerImpl implements GameManager {
 
   private final InGamePlayerStore inGamePlayerStore;
 
-  public GameManagerImpl(PlayersInQueueStore playersInQueueStore,
-      InGamePlayerStore inGamePlayerStore, InGamePlayerStore inGamePlayerStore1) {
+  public GameManagerImpl(
+      PlayersInQueueStore playersInQueueStore,
+      InGamePlayerStore inGamePlayerStore,
+      InGamePlayerStore inGamePlayerStore1) {
     this.playersInQueueStore = playersInQueueStore;
     this.inGamePlayerStore = inGamePlayerStore1;
   }
-
 
   @Override
   public synchronized boolean findGame(MatchRequest request) throws InterruptedException {
@@ -29,7 +30,6 @@ public class GameManagerImpl implements GameManager {
     validateGameMode(request.getPlayers(), request.getGameMode());
     return false;
   }
-
 
   @Override
   public Optional<Game> startGame() {
@@ -40,13 +40,12 @@ public class GameManagerImpl implements GameManager {
   public Team teamUp(GameModeDTO mode, List<Player> players) {
     if (players.size() > mode.numOfRequiredPlayers()) {
       throw new IllegalArgumentException(
-          "Number of required players for this game mode is %s".formatted(
-              mode.numOfRequiredPlayers()));
+          "Number of required players for this game mode is %s"
+              .formatted(mode.numOfRequiredPlayers()));
     }
 
     return new Team(players);
   }
-
 
   private void validateGameMode(List<Player> players, GameModeDTO gameMode)
       throws InterruptedException {
@@ -56,14 +55,13 @@ public class GameManagerImpl implements GameManager {
     }
   }
 
-
   private void validatePlayerState(List<Player> players) {
-    players.forEach(p -> {
-      if (inGamePlayerStore.getActivePlayers().containsKey(p.getId())) {
-        throw new IllegalStateException(
-            "Player: %s with id: %s is already in a game".formatted(p.getAlias(),
-                p.getId()));
-      }
-    });
+    players.forEach(
+        p -> {
+          if (inGamePlayerStore.getActivePlayers().containsKey(p.getId())) {
+            throw new IllegalStateException(
+                "Player: %s with id: %s is already in a game".formatted(p.getAlias(), p.getId()));
+          }
+        });
   }
 }

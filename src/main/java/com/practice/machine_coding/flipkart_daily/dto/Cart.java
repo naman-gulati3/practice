@@ -25,9 +25,8 @@ public class Cart {
   }
 
   public void updateProductQuantity(Product product, int quantity) {
-    Optional<ProductAndQuantity> productOptional = this.products.stream()
-        .filter(p -> p.getProduct().equals(product))
-        .findFirst();
+    Optional<ProductAndQuantity> productOptional =
+        this.products.stream().filter(p -> p.getProduct().equals(product)).findFirst();
 
     productOptional.ifPresent(productAndQuantity -> productAndQuantity.setQuantity(quantity));
   }

@@ -9,6 +9,6 @@ public interface InventoryManagementService {
 
   void addProductToInventory(Product product, int quantity);
 
-  List<Product> searchProduct(@Nullable String brand, @Nullable ProductCategory productCategory,
-      @Nullable Float price);
+  List<Product> searchProduct(
+      @Nullable String brand, @Nullable ProductCategory productCategory, @Nullable Float price);
 }

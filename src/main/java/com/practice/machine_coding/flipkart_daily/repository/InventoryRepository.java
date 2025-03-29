@@ -19,20 +19,20 @@ public class InventoryRepository {
     this.inventoryByCategory = new HashMap<>();
   }
 
-
   public void addProduct(Product product, int quantity) {
-    List<ProductAndQuantity> productAndQuantities = this.inventoryByCategory.getOrDefault(
-        product.getCategory(), new ArrayList<>());
+    List<ProductAndQuantity> productAndQuantities =
+        this.inventoryByCategory.getOrDefault(product.getCategory(), new ArrayList<>());
     productAndQuantities.add(new ProductAndQuantity(product, quantity));
 
     this.inventoryByCategory.put(product.getCategory(), productAndQuantities);
 
-    this.inventoryByProduct.put(product,
-        inventoryByProduct.getOrDefault(product, 0) + quantity);
+    this.inventoryByProduct.put(product, inventoryByProduct.getOrDefault(product, 0) + quantity);
   }
 
   public List<Product> getProducts() {
-    return this.inventoryByCategory.values().stream().flatMap(Collection::stream)
-        .map(ProductAndQuantity::getProduct).toList();
+    return this.inventoryByCategory.values().stream()
+        .flatMap(Collection::stream)
+        .map(ProductAndQuantity::getProduct)
+        .toList();
   }
 }

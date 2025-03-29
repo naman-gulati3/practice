@@ -61,12 +61,19 @@ public class User {
 
   @Override
   public String toString() {
-    return "User{" +
-        "name='" + name + '\'' +
-        ", profession='" + profession + '\'' +
-        ", subscribedTopics=" + subscribedTopics +
-        ", answers=" + answers +
-        ", isLoggedIn=" + isLoggedIn +
-        '}';
+    return "User{"
+        + "name='"
+        + name
+        + '\''
+        + ", profession='"
+        + profession
+        + '\''
+        + ", subscribedTopics="
+        + subscribedTopics
+        + ", answers="
+        + answers
+        + ", isLoggedIn="
+        + isLoggedIn
+        + '}';
   }
 }

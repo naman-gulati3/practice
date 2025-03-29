@@ -47,9 +47,8 @@ public class ReverseNodesInKGroups {
         prev.next = next; // in above example prev will point 2
         next = curr.next; // next will move forward to 3
         /**
-         * Original = 1 -> 2 -> 3 -> 4 -> 5 -> null
-         * this makes list look like: p -> 2 -> 1 -> 3 -> 4 -> 5 - null after first iteration of for
-         * loop
+         * Original = 1 -> 2 -> 3 -> 4 -> 5 -> null this makes list look like: p -> 2 -> 1 -> 3 -> 4
+         * -> 5 - null after first iteration of for loop
          */
       }
       count -= k;

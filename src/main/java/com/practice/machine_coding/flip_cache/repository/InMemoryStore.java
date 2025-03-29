@@ -18,7 +18,6 @@ public class InMemoryStore<K, V> implements DataStore<K, V> {
     this.store = new ConcurrentHashMap<>();
   }
 
-
   @Override
   public void put(K key, V value) {
     evictionPolicies.forEach(ep -> ep.keyAccessed(key));
@@ -39,10 +38,11 @@ public class InMemoryStore<K, V> implements DataStore<K, V> {
 
   @Override
   public void evict() {
-    this.evictionPolicies.forEach(ep -> {
-      K keyToRemove = ep.evict();
-      store.remove(keyToRemove);
-    });
+    this.evictionPolicies.forEach(
+        ep -> {
+          K keyToRemove = ep.evict();
+          store.remove(keyToRemove);
+        });
   }
 
   @Override

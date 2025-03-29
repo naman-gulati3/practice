@@ -1,6 +1,5 @@
 package com.practice.dsa.arrays;
 
-
 public class ReversePair {
   // https://leetcode.com/problems/reverse-pairs/
   // left element should be > 2* right element to form a pair

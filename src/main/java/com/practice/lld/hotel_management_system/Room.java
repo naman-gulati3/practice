@@ -1,6 +1,5 @@
 package com.practice.lld.hotel_management_system;
 
-
 public class Room {
   private final int roomNumber;
 

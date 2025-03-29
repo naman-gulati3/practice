@@ -12,8 +12,8 @@ public class CombinationSumIII {
     return result;
   }
 
-  private static void recurse(List<List<Integer>> result, int n, int k, int i,
-      ArrayList<Integer> currentRes) {
+  private static void recurse(
+      List<List<Integer>> result, int n, int k, int i, ArrayList<Integer> currentRes) {
     if (k == 0 && n == 0) {
       result.add(new ArrayList<>(currentRes));
       return;
@@ -33,5 +33,4 @@ public class CombinationSumIII {
   public static void main(String[] args) {
     System.out.println(combinationSum3(3, 7));
   }
-
 }
