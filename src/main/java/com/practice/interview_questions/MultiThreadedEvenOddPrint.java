@@ -35,6 +35,7 @@ public class MultiThreadedEvenOddPrint {
 
           System.out.println(counter++);
           if (isEven) {
+            // signal odd lock to release its lock for next iteration
             oddLock.release();
           } else {
             evenLock.release();
