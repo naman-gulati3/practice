@@ -25,7 +25,7 @@ public class LargestNumber {
   }
 
   public static void main(String[] args) {
-    System.out.println(largestNumber(new int[] {9, 5, 399, 34, 3, 30})); // 95345330
+    System.out.println(largestNumber(new int[] {9, 5, 399, 3, 30, 34})); // 95345330
     // 9,5,399,34,3,30
   }
 }

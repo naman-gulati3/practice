@@ -8,7 +8,7 @@ public class SameTree {
     }
 
     // pre-order traversal
-    return p.val == q.val && isSameTree(p.left, p.left) && isSameTree(p.right, q.right);
+    return p.val == q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
   }
 
   public static void main(String[] args) {
